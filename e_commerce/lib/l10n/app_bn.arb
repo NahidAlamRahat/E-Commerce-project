@@ -1,0 +1,10 @@
+{
+  "version": "ভার্সন : ",
+  "signIn": "সাইন ইন করুন",
+  "welcomeBack": "পুনরায় স্বাগতম",
+  "enterYorEmailAndPass": "আপনার ইমেইল এবং পাসওয়ার্ড প্রদান করুন",
+  "email": "ইমেইল",
+  "password": "পাসওয়ার্ড",
+  "donTHaveAnAccount": "অ্যাকাউন্ট নেই?",
+  "signUp": "সাইন আপ করুন"
+}
