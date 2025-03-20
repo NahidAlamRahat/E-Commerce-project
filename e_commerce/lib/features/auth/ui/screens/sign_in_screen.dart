@@ -3,7 +3,6 @@ import 'package:e_commerce/features/auth/ui/widgets/app_logo.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../../../../app/app_colors.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -41,40 +40,13 @@ class _SignInScreenState extends State<SignInScreen> {
               Text(context.localizations.enterYorEmailAndPass,
                   style: textTheme.titleSmall),
               const SizedBox(height: 24),
-              Form(
-                key: _formKey,
-                child: Column(
-                  children: [
-                    TextFormField(
-                      autovalidateMode: AutovalidateMode.onUserInteraction,
-                      validator: (String? value) {
-                        if (value?.trim().isEmpty ?? true) {
-                          return 'Enter your email';
-                        }
-                        return null;
-                      },
-                      keyboardType: TextInputType.emailAddress,
-                      controller: _emailTEController,
-                      decoration: InputDecoration(
-                          hintText: context.localizations.email),
-                    ),
-                    const SizedBox(height: 12),
-                    TextFormField(
-                      controller: _passwordTEController,
-                      decoration: InputDecoration(
-                          hintText: context.localizations.password),
-                    ),
-                  ],
-                ),
-              ),
+              _buildForm(context),
               const SizedBox(height: 12),
               ElevatedButton(
                   onPressed: () {
-
                     //error throw
                     FirebaseCrashlytics.instance.log('clicked sign in button');
                     throw Exception('my custom error');
-
                   },
                   child: Text(context.localizations.signIn)),
               const SizedBox(height: 12),
@@ -82,6 +54,34 @@ class _SignInScreenState extends State<SignInScreen> {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Form _buildForm(BuildContext context) {
+    return Form(
+      key: _formKey,
+      child: Column(
+        children: [
+          TextFormField(
+            autovalidateMode: AutovalidateMode.onUserInteraction,
+            validator: (String? value) {
+              if (value?.trim().isEmpty ?? true) {
+                return 'Enter your email';
+              }
+              return null;
+            },
+            keyboardType: TextInputType.emailAddress,
+            controller: _emailTEController,
+            decoration: InputDecoration(hintText: context.localizations.email),
+          ),
+          const SizedBox(height: 12),
+          TextFormField(
+            controller: _passwordTEController,
+            decoration:
+                InputDecoration(hintText: context.localizations.password),
+          ),
+        ],
       ),
     );
   }
