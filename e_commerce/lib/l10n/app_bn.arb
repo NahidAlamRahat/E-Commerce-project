@@ -6,5 +6,16 @@
   "email": "ইমেইল",
   "password": "পাসওয়ার্ড",
   "donTHaveAnAccount": "অ্যাকাউন্ট নেই?",
-  "signUp": "সাইন আপ করুন"
+  "signUp": "সাইন আপ করুন",
+  "firstName": "নামের প্রথম অংশ",
+  "lastName": "নামের শেষ অংশ",
+  "mobile": "মোবাইল",
+  "city": "শহর",
+  "shippingAddress": "প্রেরণের ঠিকানা"
+
 }
+
+
+
+
+

@@ -6,6 +6,12 @@
   "email": "Email",
   "password": "Password",
   "donTHaveAnAccount": "Don't have an account?",
-  "signUp": "Sign up"
+  "signUp": "Sign up",
+  "firstName" : "First Name",
+  "lastName": "Last Name",
+  "mobile" : "Mobile",
+  "city": "City",
+  "shippingAddress" : "Shipping Address",
+  "completeProfile" : "Complete Profile"
 }
 

@@ -1,4 +1,5 @@
 import 'package:e_commerce/core/extensions/localization_extension.dart';
+import 'package:e_commerce/features/auth/ui/screens/sign_up_screen.dart';
 import 'package:e_commerce/features/auth/ui/widgets/app_logo.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/gestures.dart';
@@ -102,7 +103,7 @@ class _SignInScreenState extends State<SignInScreen> {
             ),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
-                // Navigator.pushNamed(context, routeName)
+              Navigator.pushNamed(context, SignUpScreen.name);
               },
           ),
         ],
