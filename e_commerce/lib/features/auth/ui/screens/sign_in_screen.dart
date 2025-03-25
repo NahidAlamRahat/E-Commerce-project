@@ -59,7 +59,7 @@ class _SignInScreenState extends State<SignInScreen> {
     );
   }
 
-  Form _buildForm(BuildContext context) {
+  Widget _buildForm(BuildContext context) {
     return Form(
       key: _formKey,
       child: Column(
@@ -68,7 +68,7 @@ class _SignInScreenState extends State<SignInScreen> {
             autovalidateMode: AutovalidateMode.onUserInteraction,
             validator: (String? value) {
               if (value?.trim().isEmpty ?? true) {
-                return 'Enter your email';
+                return context.localizations.enterYourEmail;
               }
               return null;
             },
@@ -110,4 +110,5 @@ class _SignInScreenState extends State<SignInScreen> {
       ),
     );
   }
+
 }

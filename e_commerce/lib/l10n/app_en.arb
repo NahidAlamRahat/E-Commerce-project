@@ -12,6 +12,14 @@
   "mobile" : "Mobile",
   "city": "City",
   "shippingAddress" : "Shipping Address",
-  "completeProfile" : "Complete Profile"
+  "completeProfile" : "Complete Profile",
+  "enterYourEmail": "'Enter your email'",
+  "getStartedWithDetails": "Get started with us with your details",
+  "complete": "Complete",
+  "haveAnAccount": "Have an account? ",
+  "signIn": "Sign in",
+  "enterOtpCode": "Enter OTP Code",
+  "otpCodeSent": "A 4 Digit OTP Code has been sent",
+  "verify": "Verify"
 }
 

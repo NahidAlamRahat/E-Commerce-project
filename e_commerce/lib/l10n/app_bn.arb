@@ -11,8 +11,15 @@
   "lastName": "নামের শেষ অংশ",
   "mobile": "মোবাইল",
   "city": "শহর",
-  "shippingAddress": "প্রেরণের ঠিকানা"
-
+  "shippingAddress": "প্রেরণের ঠিকানা",
+  "enterYourEmail": "আপনার ইমেইল দিন",
+  "getStartedWithDetails": "আপনার তথ্য দিয়ে আমাদের সাথে যাত্রা শুরু করুন",
+  "complete": "সম্পূর্ণ করুন",
+  "haveAnAccount": "অ্যাকাউন্ট আছে? ",
+  "signIn": "সাইন ইন করুন",
+  "enterOtpCode": "OTP কোড প্রবেশ করুন",
+  "otpCodeSent": "৪ সংখ্যার OTP কোড পাঠানো হয়েছে",
+  "verify": "যাচাই করুন"
 }
 
 
