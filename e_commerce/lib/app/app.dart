@@ -15,6 +15,7 @@ class _CraftyBayState extends State<CraftyBay> {
   @override
   Widget build(BuildContext context) {
     return  MaterialApp(
+      debugShowCheckedModeBanner: false,
       initialRoute: '/',
       onGenerateRoute: AppRoutes.onGenerateRoute,
     theme: ThemeData(
@@ -50,6 +51,11 @@ class _CraftyBayState extends State<CraftyBay> {
           textStyle: const TextStyle(color: Colors.white),
         ),
       ),
+
+      appBarTheme: const AppBarTheme(
+        backgroundColor: Colors.white,
+      ),
+      scaffoldBackgroundColor: Colors.white,
 
       textTheme: const TextTheme(
       titleLarge: TextStyle(

@@ -1,6 +1,7 @@
 import 'package:e_commerce/core/extensions/localization_extension.dart';
 import 'package:e_commerce/features/auth/ui/screens/sign_up_screen.dart';
 import 'package:e_commerce/features/auth/ui/widgets/app_logo.dart';
+import 'package:e_commerce/features/common/controller/main_bottom_nav_bar_controller.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -45,9 +46,7 @@ class _SignInScreenState extends State<SignInScreen> {
               const SizedBox(height: 12),
               ElevatedButton(
                   onPressed: () {
-                    //error throw
-                    FirebaseCrashlytics.instance.log('clicked sign in button');
-                    throw Exception('my custom error');
+                    Navigator.pushReplacementNamed(context, MainBottomNavBarController.name);
                   },
                   child: Text(context.localizations.signIn)),
               const SizedBox(height: 12),
