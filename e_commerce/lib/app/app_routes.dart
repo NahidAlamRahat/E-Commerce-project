@@ -1,6 +1,9 @@
 import 'package:e_commerce/features/auth/ui/screens/sign_in_screen.dart';
 import 'package:e_commerce/features/auth/ui/screens/sign_up_screen.dart';
-import 'package:e_commerce/features/common/controller/main_bottom_nav_bar_controller.dart';
+import 'package:e_commerce/features/common/ui/screen/main_bottom_nav_bar_screen.dart';
+import 'package:e_commerce/features/products/ui/screen/product_details_screen.dart';
+import 'package:e_commerce/features/products/ui/screen/products_list_screen.dart';
+import 'package:e_commerce/features/wishlist/ui/screen/wish_list_screen.dart';
 import 'package:flutter/material.dart';
 import '../features/auth/ui/screens/splash_screen.dart';
 import '../features/auth/ui/screens/verify_otp_screen.dart';
@@ -21,8 +24,15 @@ class AppRoutes {
     else if(settings.name == VerifyOtpScreenOtp.name){
       route = const VerifyOtpScreenOtp();
     }
-    else if(settings.name == MainBottomNavBarController.name){
-      route = const MainBottomNavBarController();
+    else if(settings.name == MainBottomNavBarScreen.name){
+      route = const MainBottomNavBarScreen();
+    }
+    else if(settings.name == ProductsListScreen.name){
+     final String category= settings.arguments as String;
+      route =  ProductsListScreen(category: category,);
+    }
+    else if(settings.name == ProductDetailsScreen.name){
+      route = const ProductDetailsScreen();
     }
 
     return MaterialPageRoute(builder: (context) => route);

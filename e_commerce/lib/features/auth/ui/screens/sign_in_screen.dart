@@ -1,8 +1,8 @@
 import 'package:e_commerce/core/extensions/localization_extension.dart';
 import 'package:e_commerce/features/auth/ui/screens/sign_up_screen.dart';
 import 'package:e_commerce/features/auth/ui/widgets/app_logo.dart';
-import 'package:e_commerce/features/common/controller/main_bottom_nav_bar_controller.dart';
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:e_commerce/features/common/ui/screen/main_bottom_nav_bar_screen.dart';
+import 'package:e_commerce/features/common/ui/widgets/double_click_to_exit_app_method.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import '../../../../app/app_colors.dart';
@@ -25,33 +25,36 @@ class _SignInScreenState extends State<SignInScreen> {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
 
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(24.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              const SizedBox(height: 60),
-              AppLogo(),
-              const SizedBox(height: 24),
-              Text(context.localizations.welcomeBack,
-                  style: textTheme.titleLarge),
-              const SizedBox(height: 8),
-              Text(context.localizations.enterYorEmailAndPass,
-                  style: textTheme.titleSmall),
-              const SizedBox(height: 24),
-              _buildForm(context),
-              const SizedBox(height: 12),
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushReplacementNamed(context, MainBottomNavBarController.name);
-                  },
-                  child: Text(context.localizations.signIn)),
-              const SizedBox(height: 12),
-              buildRichText()
-            ],
+    return WillPopScope(
+      onWillPop: () => onWillPop(context: context),
+      child: Scaffold(
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(24.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                const SizedBox(height: 60),
+                AppLogo(),
+                const SizedBox(height: 24),
+                Text(context.localizations.welcomeBack,
+                    style: textTheme.titleLarge),
+                const SizedBox(height: 8),
+                Text(context.localizations.enterYorEmailAndPass,
+                    style: textTheme.titleSmall),
+                const SizedBox(height: 24),
+                _buildForm(context),
+                const SizedBox(height: 12),
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushReplacementNamed(context, MainBottomNavBarScreen.name);
+                    },
+                    child: Text(context.localizations.signIn)),
+                const SizedBox(height: 12),
+                buildRichText()
+              ],
+            ),
           ),
         ),
       ),

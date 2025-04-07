@@ -20,6 +20,11 @@
   "signIn": "Sign in",
   "enterOtpCode": "Enter OTP Code",
   "otpCodeSent": "A 4 Digit OTP Code has been sent",
-  "verify": "Verify"
+  "verify": "Verify",
+  "allCategories": "All Categories",
+  "seeAll": "See All",
+  "popular": "Popular",
+  "special": "Special",
+  "productDetails": "Product Details"
 }
 

@@ -19,7 +19,12 @@
   "signIn": "সাইন ইন করুন",
   "enterOtpCode": "OTP কোড প্রবেশ করুন",
   "otpCodeSent": "৪ সংখ্যার OTP কোড পাঠানো হয়েছে",
-  "verify": "যাচাই করুন"
+  "verify": "যাচাই করুন",
+  "allCategories": "সমস্ত বিভাগ",
+  "seeAll": "সব দেখুন",
+  "popular": "জনপ্রিয়",
+  "special": "বিশেষ অফার",
+  "productDetails": "পণ্যের বিবরণ"
 }
 
 
