@@ -1,6 +1,8 @@
 import 'package:e_commerce/app/app_colors.dart';
 import 'package:e_commerce/app/assets_path.dart';
 import 'package:e_commerce/features/products/ui/screen/product_details_screen.dart';
+import 'package:e_commerce/features/products/ui/widgets/favorite_icon_card.dart';
+import 'package:e_commerce/features/products/ui/widgets/product_title_text.dart';
 import 'package:flutter/material.dart';
 
 class ProductItemCard extends StatelessWidget {
@@ -37,11 +39,12 @@ class ProductItemCard extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
                   children: [
-                    const Text(
-                      'Nike NK76 - new collection',
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 1,
-                      style: TextStyle(fontWeight: FontWeight.w600),
+                    const ProductTitleText(
+                      maxLine: 1,
+                      style: TextStyle(fontWeight: FontWeight.w600,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -67,17 +70,7 @@ class ProductItemCard extends StatelessWidget {
                                 fontSize: 15,
                               ),
                             ),
-                            Card(
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(2),
-                              ),
-                              color: AppColors.themeColor,
-                              child: const Icon(
-                                Icons.favorite_border,
-                                color: Colors.white,
-                                size: 24,
-                              ),
-                            ),
+                            FavoriteIconCard()
                           ],
                         ),
                       ],
