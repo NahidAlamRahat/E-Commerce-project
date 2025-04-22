@@ -2,7 +2,7 @@ import 'package:e_commerce/core/extensions/localization_extension.dart';
 import 'package:e_commerce/features/auth/ui/screens/sign_up_screen.dart';
 import 'package:e_commerce/features/auth/ui/widgets/app_logo.dart';
 import 'package:e_commerce/features/common/ui/screen/main_bottom_nav_bar_screen.dart';
-import 'package:e_commerce/features/common/ui/widgets/double_click_to_exit_app_method.dart';
+import 'package:e_commerce/features/auth/ui/widgets/double_click_to_exit_app_method.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import '../../../../app/app_colors.dart';

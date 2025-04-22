@@ -1,4 +1,5 @@
 import 'package:e_commerce/app/app_colors.dart';
+import 'package:e_commerce/features/products/ui/screen/reviews_screen.dart';
 import 'package:flutter/material.dart';
 import 'favorite_icon_card.dart';
 
@@ -13,13 +14,12 @@ class RatingReviewAndFavoriteRow extends StatelessWidget {
         Wrap(
           spacing: 6,
           children: [
-            const Padding(
-              padding: EdgeInsets.only(left: 6),
-              child: Icon(Icons.star, color: Colors.amber, size: 26),
-            ),
+            const Icon(Icons.star, color: Colors.amber, size: 26),
             const Text('4.8', style: TextStyle(fontSize: 18)),
             InkWell(
-              onTap: (){},
+              onTap: (){
+                Navigator.pushNamed(context, ReviewsScreen.name);
+              },
               child: Text(
                 'Reviews',
                 style: TextStyle(

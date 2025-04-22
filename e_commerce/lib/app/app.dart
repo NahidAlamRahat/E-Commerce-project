@@ -41,6 +41,11 @@ class _CraftyBayState extends State<CraftyBay> {
         focusedErrorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
         ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8),
+          borderSide: BorderSide(color: Colors.red)
+        ),
+
       ),
 
       elevatedButtonTheme: ElevatedButtonThemeData(

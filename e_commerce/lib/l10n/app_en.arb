@@ -17,7 +17,6 @@
   "getStartedWithDetails": "Get started with us with your details",
   "complete": "Complete",
   "haveAnAccount": "Have an account? ",
-  "signIn": "Sign in",
   "enterOtpCode": "Enter OTP Code",
   "otpCodeSent": "A 4 Digit OTP Code has been sent",
   "verify": "Verify",
@@ -25,6 +24,16 @@
   "seeAll": "See All",
   "popular": "Popular",
   "special": "Special",
-  "productDetails": "Product Details"
+  "productDetails": "Product Details",
+  "color": "Color",
+  "size": "Size",
+  "description": "Description",
+  "enterYourFirstName": "Enter your first name",
+  "enterYourLastName": "Enter your last name",
+  "enterAPassword": "Enter a password",
+  "enterPasswordMoreThan6Letters": "Enter a password more than 6 letters",
+  "enterAShippingAddress": "Enter a shipping address",
+  "enterValidEmail": "Enter a valid email address",
+  "enterYourValidMobileNumber": "Enter your Valid mobile number"
 }
 
