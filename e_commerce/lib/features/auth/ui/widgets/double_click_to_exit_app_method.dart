@@ -1,4 +1,4 @@
-import 'package:e_commerce/features/common/ui/widgets/show_snack_bar_message.dart';
+import 'package:e_commerce/features/auth/ui/widgets/show_snack_bar_message.dart';
 import 'package:flutter/cupertino.dart';
 
 DateTime? lastBackPressTime;
