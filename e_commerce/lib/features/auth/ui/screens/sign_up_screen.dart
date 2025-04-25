@@ -1,8 +1,14 @@
 import 'package:e_commerce/core/extensions/localization_extension.dart';
+import 'package:e_commerce/features/auth/data/models/sign_up_model.dart';
+import 'package:e_commerce/features/auth/ui/controllers/sign_up_controller.dart';
 import 'package:e_commerce/features/auth/ui/screens/verify_otp_screen.dart';
 import 'package:e_commerce/features/auth/ui/widgets/app_logo.dart';
+import 'package:e_commerce/features/auth/ui/widgets/show_snack_bar_message.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_state_manager/src/simple/get_state.dart';
 import '../widgets/sign_in_rich_text.dart';
 
 
@@ -21,8 +27,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
   TextEditingController firstNameTEController = TextEditingController();
   TextEditingController lastNameTEController = TextEditingController();
   TextEditingController mobileTEController = TextEditingController();
+  TextEditingController cityTEController = TextEditingController();
+
 
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  final SignUpController signUpController = Get.find<SignUpController>();
 
 
   @override
@@ -50,9 +59,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
               _buildForm(context),
               const SizedBox(height: 12),
-              ElevatedButton(
-                onPressed: _onTapSignUpButton,
-                child: Text(context.localizations.complete),
+              GetBuilder<SignUpController>(
+                builder: (controller) {
+                  return ElevatedButton(
+                    onPressed: (){
+                      _onTapSignUpButton();
+                    },
+                    child: Text(context.localizations.complete),
+                  );
+                }
               ),
               const SizedBox(height: 12),
                SignInRichText(voidCallback: () => _onTapSignInButton(),
@@ -76,6 +91,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           const SizedBox(height: 24),
 
           TextFormField(
+            controller: firstNameTEController,
             keyboardType: TextInputType.name,
             textInputAction: TextInputAction.next,
             decoration: InputDecoration(
@@ -93,6 +109,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           const SizedBox(height: 12),
 
           TextFormField(
+            controller: lastNameTEController,
             keyboardType: TextInputType.name,
             textInputAction: TextInputAction.next,
             decoration: InputDecoration(
@@ -109,6 +126,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           const SizedBox(height: 12),
 
           TextFormField(
+            controller: emailTEController,
             textInputAction: TextInputAction.next,
             keyboardType: TextInputType.emailAddress,
             decoration: InputDecoration(
@@ -127,6 +145,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           const SizedBox(height: 12),
 
           TextFormField(
+            controller: mobileTEController,
             keyboardType: TextInputType.number,
             textInputAction: TextInputAction.next,
             decoration: InputDecoration(
@@ -146,6 +165,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           const SizedBox(height: 12),
 
           TextFormField(
+            controller: cityTEController,
             maxLines: 3,
             textInputAction: TextInputAction.next,
             decoration: InputDecoration(
@@ -181,9 +201,32 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
 
 
-  void _onTapSignUpButton() {
+    Future<void> _onTapSignUpButton() async{
     if(formKey.currentState!.validate()){
-      Navigator.pushNamed(context, VerifyOtpScreenOtp.name);
+      SignUpModel signUpModel = SignUpModel(
+          firstName: firstNameTEController.text.trim(),
+          lastName: lastNameTEController.text.trim(),
+          email: emailTEController.text.trim(),
+          mobile: mobileTEController.text.trim(),
+          password: passwordTEController.text,
+          city:cityTEController.text.trim(),
+      );
+
+      final bool isSuccess = await signUpController.signUp(signUpModel);
+      if(isSuccess){
+
+        ShowSnackBarMessage(
+          signUpController.successfullyMessage ?? 'Signup Successful!',
+          context,
+        );
+        Navigator.pushNamed(context, VerifyOtpScreenOtp.name);
+      }
+      else{
+       // error message
+        ShowSnackBarMessage(signUpController.errorMessage, context);
+
+
+      }
 
     }
   }

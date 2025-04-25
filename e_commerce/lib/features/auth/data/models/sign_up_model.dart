@@ -7,14 +7,14 @@ class SignUpModel{
  final String password;
  final String city;
 
- SignUpModel(
-     this.firstName,
-     this.lastName,
-     this.email,
-     this.mobile,
-     this.password,
-     this.city,
-     );
+ SignUpModel({
+    required this.firstName,
+    required this.lastName,
+    required this.email,
+    required this.mobile,
+    required this.password,
+    required this.city,
+  });
 
  Map<String, dynamic> toJson() {
  return {

@@ -10,6 +10,9 @@ class SignUpController extends GetxController{
  String? _errorMessage;
   String? get errorMessage => _errorMessage;
 
+  String? _successfullyMessage;
+  String? get successfullyMessage => _successfullyMessage;
+
 
   Future<bool> signUp(SignUpModel signUpModel)async{
     bool isSuccess=false;
@@ -20,14 +23,19 @@ class SignUpController extends GetxController{
         .postRequest(url: AppUrls.signUpUrl, body: signUpModel.toJson(),
     );
     if(response.isSuccess){
+     _successfullyMessage = response.successfullyMessage;
       _signUpInProgress = false;
+      isSuccess = true;
       update();
-
-
-
     }
+    else{
+      _errorMessage = response.errorMessage;
+    }
+
+    signUpInProgress == false;
+    update();
+
     return isSuccess;
   }
-
 
 }

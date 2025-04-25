@@ -1,6 +1,4 @@
 import 'dart:convert';
-import 'dart:nativewrappers/_internal/vm/lib/math_patch.dart';
-import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:logger/logger.dart';
 
@@ -10,12 +8,14 @@ class NetworkResponse {
   final int statusCode;
   late final Map<String, dynamic>? statusData;
   String? errorMessage;
+  String? successfullyMessage;
 
   NetworkResponse({
     required this.statusCode,
     required this.isSuccess,
     this.statusData,
     this.errorMessage = 'Something is wrong',
+    this.successfullyMessage = 'Successfully'
   });
 }
 
@@ -42,24 +42,32 @@ class NetworkCaller {
 
       _logResponse(url: url, response: response);
 
-      if (response.statusCode == 200 || response.statusCode == 201) {
+      final decodedResponse = jsonDecode(response.body);
+
+
+     if (response.statusCode == 200 || response.statusCode == 201) {
+
         return NetworkResponse(
           statusCode: response.statusCode,
+          successfullyMessage: decodedResponse['msg'],
           isSuccess: true,
-          statusData: jsonDecode(response.body),
+          statusData: decodedResponse,
+
         );
       }
       // Handle unauthorized (401) response
       else if (response.statusCode == 401) {
         return NetworkResponse(
           statusCode: response.statusCode,
-          isSuccess: true,
-          statusData: jsonDecode(response.body),
+          errorMessage: decodedResponse['msg'],
+          isSuccess: false,
+          statusData: decodedResponse,
         );
       }
       else {
         return NetworkResponse(
           statusCode: response.statusCode,
+          errorMessage: decodedResponse['msg'],
           isSuccess: false,
         );
       }
@@ -88,36 +96,37 @@ class NetworkCaller {
 
       _logRequest(url: url, headers: headers);
 
-      Response response = await post(
-          uri,
-          body: jsonEncode(body),
-          headers: headers
-      );
+      Response response =
+      await post(uri, headers: headers, body: jsonEncode(body));
 
       _logResponse(url: url, response: response);
 
-      debugPrint('Status Code = ${response.statusCode}');
-      debugPrint('Response Data = ${response.body}');
+
+      final decodedResponse = jsonDecode(response.body);
 
 
-      if (response.statusCode == 200 || response.statusCode == 201) {
+     if (response.statusCode == 200 || response.statusCode == 201) {
         return NetworkResponse(
           statusCode: response.statusCode,
           isSuccess: true,
-          statusData: jsonDecode(response.body),
+          statusData: decodedResponse,
+          successfullyMessage: decodedResponse['msg'],
+
         );
       }
       // Handle unauthorized (401) response
       else if (response.statusCode == 401) {
         return NetworkResponse(
           statusCode: response.statusCode,
-          isSuccess: true,
-          statusData: jsonDecode(response.body),
+          isSuccess: false,
+          statusData: decodedResponse,
+          errorMessage: decodedResponse['msg'],
         );
       }
       else {
         return NetworkResponse(
           statusCode: response.statusCode,
+          errorMessage: decodedResponse['msg'],
           isSuccess: false,
         );
       }
@@ -137,7 +146,7 @@ class NetworkCaller {
   }
 
 
-  void _logResponse({required String url, required Response response}){
+  void _logResponse({required String url, required Response response,}){
     // code hare
     _logger.i(
         'Url = $url\nHeaders = ${response.headers}\nBody = ${response.body}\nStatus Code = ${response.statusCode}');
