@@ -1,0 +1,42 @@
+{
+  "version": "ভার্সন : ",
+  "signIn": "সাইন ইন করুন",
+  "welcomeBack": "পুনরায় স্বাগতম",
+  "enterYorEmailAndPass": "আপনার ইমেইল এবং পাসওয়ার্ড প্রদান করুন",
+  "email": "ইমেইল",
+  "password": "পাসওয়ার্ড",
+  "donTHaveAnAccount": "অ্যাকাউন্ট নেই?",
+  "signUp": "সাইন আপ করুন",
+  "firstName": "নামের প্রথম অংশ",
+  "lastName": "নামের শেষ অংশ",
+  "mobile": "মোবাইল",
+  "city": "শহর",
+  "shippingAddress": "প্রেরণের ঠিকানা",
+  "enterYourEmail": "আপনার ইমেইল দিন",
+  "getStartedWithDetails": "আপনার তথ্য দিয়ে আমাদের সাথে যাত্রা শুরু করুন",
+  "complete": "সম্পূর্ণ করুন",
+  "haveAnAccount": "অ্যাকাউন্ট আছে? ",
+  "enterOtpCode": "OTP কোড প্রবেশ করুন",
+  "otpCodeSent": "৪ সংখ্যার OTP কোড পাঠানো হয়েছে",
+  "verify": "যাচাই করুন",
+  "allCategories": "সমস্ত বিভাগ",
+  "seeAll": "সব দেখুন",
+  "popular": "জনপ্রিয়",
+  "special": "বিশেষ অফার",
+  "productDetails": "পণ্যের বিবরণ",
+  "color": "রং",
+  "size": "সাইজ",
+  "description": "বর্ণনা",
+  "enterYourFirstName": "আপনার প্রথম নাম লিখুন",
+  "enterYourLastName": "আপনার শেষ নাম লিখুন",
+  "enterAPassword": "একটি পাসওয়ার্ড লিখুন",
+  "enterPasswordMoreThan6Letters": "৬ অক্ষরের বেশি একটি পাসওয়ার্ড লিখুন",
+  "enterAShippingAddress": "একটি শিপিং ঠিকানা লিখুন",
+  "enterValidEmail": "একটি সঠিক ইমেইল ঠিকানা দিন",
+  "enterYourValidMobileNumber": "আপনার সঠিক মোবাইল নম্বর লিখুন"
+}
+
+
+
+
+
