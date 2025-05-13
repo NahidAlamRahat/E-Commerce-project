@@ -16,7 +16,7 @@
   "getStartedWithDetails": "আপনার তথ্য দিয়ে আমাদের সাথে যাত্রা শুরু করুন",
   "complete": "সম্পূর্ণ করুন",
   "haveAnAccount": "অ্যাকাউন্ট আছে? ",
-  "enterOtpCode": "OTP কোড প্রবেশ করুন",
+  "enterOtpCode": "OTP কোড লিখুন",
   "otpCodeSent": "৪ সংখ্যার OTP কোড পাঠানো হয়েছে",
   "verify": "যাচাই করুন",
   "allCategories": "সমস্ত বিভাগ",
@@ -33,7 +33,8 @@
   "enterPasswordMoreThan6Letters": "৬ অক্ষরের বেশি একটি পাসওয়ার্ড লিখুন",
   "enterAShippingAddress": "একটি শিপিং ঠিকানা লিখুন",
   "enterValidEmail": "একটি সঠিক ইমেইল ঠিকানা দিন",
-  "enterYourValidMobileNumber": "আপনার সঠিক মোবাইল নম্বর লিখুন"
+  "enterYourValidMobileNumber": "আপনার সঠিক মোবাইল নম্বর লিখুন",
+  "enterCorrectOtp": "সঠিক OTP নম্বর লিখুন"
 }
 
 

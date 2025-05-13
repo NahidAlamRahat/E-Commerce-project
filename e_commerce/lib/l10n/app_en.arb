@@ -34,6 +34,7 @@
   "enterPasswordMoreThan6Letters": "Enter a password more than 6 letters",
   "enterAShippingAddress": "Enter a shipping address",
   "enterValidEmail": "Enter a valid email address",
-  "enterYourValidMobileNumber": "Enter your Valid mobile number"
+  "enterYourValidMobileNumber": "Enter your Valid mobile number",
+  "enterCorrectOtp": "Enter the correct OTP number."
 }
 

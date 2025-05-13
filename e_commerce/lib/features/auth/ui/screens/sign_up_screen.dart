@@ -18,12 +18,12 @@ class SignUpScreen extends StatefulWidget {
   static String name = 'sign-up-screen';
 
   @override
-  State<SignUpScreen> createState() => _SignUpScreenState();
+  State<SignUpScreen> createState() => SignUpScreenState();
 }
 
-class _SignUpScreenState extends State<SignUpScreen> {
-  TextEditingController emailTEController = TextEditingController();
-  TextEditingController passwordTEController = TextEditingController();
+class SignUpScreenState extends State<SignUpScreen> {
+  final TextEditingController _emailTEController = TextEditingController();
+  final TextEditingController _passwordTEController = TextEditingController();
   TextEditingController firstNameTEController = TextEditingController();
   TextEditingController lastNameTEController = TextEditingController();
   TextEditingController mobileTEController = TextEditingController();
@@ -61,11 +61,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
               const SizedBox(height: 12),
               GetBuilder<SignUpController>(
                 builder: (controller) {
-                  return ElevatedButton(
-                    onPressed: (){
-                      _onTapSignUpButton();
-                    },
-                    child: Text(context.localizations.complete),
+                  return Visibility(
+                    visible: controller.signUpInProgress == false,
+                    replacement: CircularProgressIndicator(),
+                    child: ElevatedButton(
+                      onPressed: onTapSignUpButton,
+
+                      child: Text(context.localizations.complete),
+                    ),
                   );
                 }
               ),
@@ -126,7 +129,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           const SizedBox(height: 12),
 
           TextFormField(
-            controller: emailTEController,
+            controller: _emailTEController,
             textInputAction: TextInputAction.next,
             keyboardType: TextInputType.emailAddress,
             decoration: InputDecoration(
@@ -191,7 +194,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               }
               return null;
             },
-            controller: passwordTEController,
+            controller: _passwordTEController,
             decoration:  InputDecoration(hintText: context.localizations.password),
           ),
         ],
@@ -201,27 +204,34 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
 
 
-    Future<void> _onTapSignUpButton() async{
+    Future<void> onTapSignUpButton() async{
     if(formKey.currentState!.validate()){
       SignUpModel signUpModel = SignUpModel(
           firstName: firstNameTEController.text.trim(),
           lastName: lastNameTEController.text.trim(),
-          email: emailTEController.text.trim(),
+          email: _emailTEController.text.trim(),
           mobile: mobileTEController.text.trim(),
-          password: passwordTEController.text,
+          password: _passwordTEController.text,
           city:cityTEController.text.trim(),
       );
 
       final bool isSuccess = await signUpController.signUp(signUpModel);
-      if(isSuccess){
+      signUpController.signUpInProgress==true;
 
+      if(isSuccess){
+        signUpController.signUpInProgress==false;
         ShowSnackBarMessage(
           signUpController.successfullyMessage ?? 'Signup Successful!',
           context,
         );
-        Navigator.pushNamed(context, VerifyOtpScreenOtp.name);
+        Navigator.pushNamed(
+          context,
+          VerifyOtpScreenOtp.name,
+          arguments: _emailTEController.text.trim(),
+        );
       }
       else{
+        signUpController.signUpInProgress==false;
        // error message
         ShowSnackBarMessage(signUpController.errorMessage, context);
 
