@@ -1,7 +1,10 @@
 import 'package:e_commerce/app/app_configs.dart';
 import 'package:e_commerce/core/extensions/localization_extension.dart';
+import 'package:e_commerce/features/auth/ui/controllers/auth_controllers.dart';
 import 'package:e_commerce/features/auth/ui/screens/sign_in_screen.dart';
+import 'package:e_commerce/features/common/ui/screen/main_bottom_nav_bar_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../widgets/app_logo.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -13,6 +16,7 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  AuthController authController = Get.put(AuthController());
 
   @override
   void initState() {
@@ -42,9 +46,17 @@ class _SplashScreenState extends State<SplashScreen> {
       ),
     );
   }
-  Future<void> _moveToNextScreen()async{
-  await  Future.delayed(const Duration(seconds: 4),);
-  Navigator.pushReplacementNamed(context, SignInScreen.name);
+
+  Future<void> _moveToNextScreen() async {
+    await Future.delayed(const Duration(seconds: 4));
+    bool userLoggedIn = await authController.isUserLoggedIn();
+    if (userLoggedIn) {
+      Get.offNamed( MainBottomNavBarScreen.name);
+    } else {
+      Get.offNamed(SignInScreen.name);
+    }
   }
+
+
 }
 

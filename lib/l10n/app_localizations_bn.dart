@@ -118,4 +118,7 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get enterCorrectOtp => 'সঠিক OTP নম্বর লিখুন';
+
+  @override
+  String get enterYourPassword => 'আপনার পাসওয়ার্ড লিখুন';
 }

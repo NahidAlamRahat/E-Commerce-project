@@ -2,7 +2,6 @@ import 'package:e_commerce/app/assets_path.dart';
 import 'package:e_commerce/core/extensions/localization_extension.dart';
 import 'package:e_commerce/features/common/controller/main_bottom_nav_bar_controller.dart';
 import 'package:e_commerce/features/common/ui/widgets/categories_item.dart';
-import 'package:e_commerce/features/auth/ui/widgets/show_snack_bar_message.dart';
 import 'package:e_commerce/features/home/ui/widgets/app_bar_acction_button.dart';
 import 'package:e_commerce/features/auth/ui/widgets/double_click_to_exit_app_method.dart';
 import 'package:e_commerce/features/home/ui/widgets/home_carousel_slider.dart';

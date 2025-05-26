@@ -118,4 +118,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get enterCorrectOtp => 'Enter the correct OTP number.';
+
+  @override
+  String get enterYourPassword => 'Enter your password';
 }

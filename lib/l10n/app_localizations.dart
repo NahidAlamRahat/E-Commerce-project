@@ -316,6 +316,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Enter the correct OTP number.'**
   String get enterCorrectOtp;
+
+  /// No description provided for @enterYourPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your password'**
+  String get enterYourPassword;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
