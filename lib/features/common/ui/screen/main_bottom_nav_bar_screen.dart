@@ -1,4 +1,5 @@
 import 'package:e_commerce/features/categories/ui/screen/categories_list_screen.dart';
+import 'package:e_commerce/features/common/controller/category_controller.dart';
 import 'package:e_commerce/features/common/controller/home_sliders_controller.dart';
 import 'package:e_commerce/features/common/controller/main_bottom_nav_bar_controller.dart';
 import 'package:e_commerce/features/home/ui/screen/home_screen.dart';
@@ -16,14 +17,12 @@ class MainBottomNavBarScreen extends StatefulWidget {
   @override
   State<MainBottomNavBarScreen> createState() =>
       _MainBottomNavBarScreenState();
-
-
-}
+   }
 
 
 List <Widget> _screen = [
   const HomeScreen(),
-  const CategoriesListScreen(),
+  const CategoryListScreen(),
   const HomeScreen(),
   const WishListScreen(),
 
@@ -39,6 +38,7 @@ class _MainBottomNavBarScreenState
     // TODO: implement initState
     super.initState();
     Get.find<HomeSliderController>().getSliders();
+    Get.find<CategoryController>().getCategoryList();
   }
 
   @override

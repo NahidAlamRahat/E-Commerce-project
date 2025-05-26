@@ -1,7 +1,9 @@
 import 'package:e_commerce/app/assets_path.dart';
 import 'package:e_commerce/core/extensions/localization_extension.dart';
+import 'package:e_commerce/features/common/controller/category_controller.dart';
 import 'package:e_commerce/features/common/controller/main_bottom_nav_bar_controller.dart';
-import 'package:e_commerce/features/common/ui/widgets/categories_item.dart';
+import 'package:e_commerce/features/common/data/models/category_model.dart';
+import 'package:e_commerce/features/common/ui/widgets/category_item.dart';
 import 'package:e_commerce/features/home/ui/widgets/app_bar_acction_button.dart';
 import 'package:e_commerce/features/auth/ui/widgets/double_click_to_exit_app_method.dart';
 import 'package:e_commerce/features/home/ui/widgets/home_carousel_slider.dart';
@@ -71,20 +73,31 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildCategoriesSection() {
-    return const SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        children: [
-          CategoriesItem(),
-          CategoriesItem(),
-          CategoriesItem(),
-          CategoriesItem(),
-          CategoriesItem(),
-          CategoriesItem(),
-        ],
-      ),
+    return GetBuilder<CategoryController>(
+      builder: (controller) {
+        if (controller.isInitialLoading) {
+          return const SizedBox(
+            height: 100,
+            child: Center(child: CircularProgressIndicator()),
+          );
+        }
+
+        List<CategoryModel> list = controller.categoryList.length > 10
+            ? controller.categoryList.sublist(0, 10)
+            : controller.categoryList;
+
+        return SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: list.map((e) {
+              return CategoryItem(categoryModel: e);
+            }).toList(),
+          ),
+        );
+      },
     );
   }
+
 
   Widget _buildProductSection() {
     return const SingleChildScrollView(
