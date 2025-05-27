@@ -1,8 +1,10 @@
+import 'package:e_commerce/core/extensions/app_localization_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../common/controller/category_controller.dart';
 import '../../common/controller/main_bottom_nav_index_controller.dart';
+import '../../common/model/category_model.dart';
+import '../../common/widgets/category_item.dart';
 
 class CategoryScreen extends StatefulWidget {
   const CategoryScreen({super.key});
@@ -43,7 +45,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
             },
             icon: Icon(Icons.arrow_back_ios_new),
           ),
-          title: Text(context.localization.category, style: TextStyle(fontSize: 24)),
+          title: Text(context.localizations.category, style: TextStyle(fontSize: 24)),
         ),
         body: GetBuilder<CategoryController>(
           builder: (controller) {
@@ -79,11 +81,11 @@ class _CategoryScreenState extends State<CategoryScreen> {
                             },
                           ),
                         ),
-                    SliverToBoxAdapter(
+                    const SliverToBoxAdapter(
                       child: Padding(padding: EdgeInsets.symmetric(vertical: 10)),
                     ),
                     if (controller.paginationInProgress)
-                      SliverToBoxAdapter(
+                      const SliverToBoxAdapter(
                         child: Center(child: CircularProgressIndicator()),
                       ),
                   ],

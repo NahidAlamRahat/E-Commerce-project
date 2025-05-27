@@ -1,7 +1,7 @@
-import 'package:crafty_bay/app/app_color.dart';
-import 'package:crafty_bay/app/asset_path.dart';
-import 'package:crafty_bay/feature/common/model/category_model.dart';
-import 'package:crafty_bay/feature/product/screens/product_list_screen.dart';
+import 'package:e_commerce/app/app_color.dart';
+import 'package:e_commerce/app/asset_path.dart';
+import 'package:e_commerce/feature/common/model/category_model.dart';
+import 'package:e_commerce/feature/product/screens/product_list_screen.dart';
 import 'package:flutter/material.dart';
 
 class CategoryItem extends StatelessWidget {

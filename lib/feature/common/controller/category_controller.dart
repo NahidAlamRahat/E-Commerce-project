@@ -1,6 +1,6 @@
-import 'package:crafty_bay/app/app_urls.dart';
-import 'package:crafty_bay/feature/common/model/category_model.dart';
-import 'package:crafty_bay/core/network_caller/network_caller.dart';
+import 'package:e_commerce/app/app_urls.dart';
+import 'package:e_commerce/core/network_caller/network_caller.dart';
+import 'package:e_commerce/feature/common/model/category_model.dart';
 import 'package:get/get.dart';
 
 class CategoryController extends GetxController{
@@ -38,8 +38,10 @@ class CategoryController extends GetxController{
     }
     update();
 
-    NetworkResponse response = await Get.find<NetworkCaller>().getRequest(url: AppUrls.CategoryUrl,queryParams: {
-      'count': _perPageDataCount,
+    NetworkResponse response = await Get.find<NetworkCaller>().getRequest(
+      url: AppUrls.CategoryUrl,
+      queryParams: {
+        'count': _perPageDataCount,
       'page': _currentPage,
     },);
     if(response.isSuccess){

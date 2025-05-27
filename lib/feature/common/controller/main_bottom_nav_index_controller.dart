@@ -1,6 +1,5 @@
-import 'package:crafty_bay/feature/auth/ui/controller/auth_controller.dart';
+import 'package:e_commerce/feature/auth/ui/controller/auth_controller.dart';
 import 'package:get/get.dart';
-
 class MainBottomNavIndexController extends GetxController {
   int _index = 0;
   int get currentIndex => _index;

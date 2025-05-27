@@ -1,20 +1,20 @@
-import 'package:crafty_bay/app/asset_path.dart';
-import 'package:crafty_bay/core/extensions/app_localization_extension.dart';
-import 'package:crafty_bay/feature/common/controller/category_controller.dart';
-import 'package:crafty_bay/feature/common/controller/home_slider_controller.dart';
-import 'package:crafty_bay/feature/common/controller/main_bottom_nav_index_controller.dart';
-import 'package:crafty_bay/feature/common/controller/new_product_list_controller.dart';
-import 'package:crafty_bay/feature/common/controller/popular_product_list_controller.dart';
-import 'package:crafty_bay/feature/common/controller/special_product_list_controller.dart';
-import 'package:crafty_bay/feature/common/model/category_model.dart';
-import 'package:crafty_bay/feature/common/widgets/category_item.dart';
-import 'package:crafty_bay/feature/common/widgets/product_card.dart';
-import 'package:crafty_bay/feature/home/widgets/HomeCarouselSlider.dart';
-import 'package:crafty_bay/feature/home/widgets/section_header.dart';
-import 'package:crafty_bay/feature/product/data/product_model.dart';
-import 'package:crafty_bay/feature/product/screens/new_product_list_screen.dart';
-import 'package:crafty_bay/feature/product/screens/popular_product_list_screen.dart';
-import 'package:crafty_bay/feature/product/screens/special_product_list_screen.dart';
+import 'package:e_commerce/app/asset_path.dart';
+import 'package:e_commerce/core/extensions/app_localization_extension.dart';
+import 'package:e_commerce/feature/common/controller/category_controller.dart';
+import 'package:e_commerce/feature/common/controller/home_slider_controller.dart';
+import 'package:e_commerce/feature/common/controller/main_bottom_nav_index_controller.dart';
+import 'package:e_commerce/feature/common/controller/new_product_list_controller.dart';
+import 'package:e_commerce/feature/common/controller/popular_product_list_controller.dart';
+import 'package:e_commerce/feature/common/controller/special_product_list_controller.dart';
+import 'package:e_commerce/feature/common/model/category_model.dart';
+import 'package:e_commerce/feature/common/widgets/category_item.dart';
+import 'package:e_commerce/feature/common/widgets/product_card.dart';
+import 'package:e_commerce/feature/home/widgets/HomeCarouselSlider.dart';
+import 'package:e_commerce/feature/home/widgets/section_header.dart';
+import 'package:e_commerce/feature/product/data/product_model.dart';
+import 'package:e_commerce/feature/product/screens/new_product_list_screen.dart';
+import 'package:e_commerce/feature/product/screens/popular_product_list_screen.dart';
+import 'package:e_commerce/feature/product/screens/special_product_list_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -42,22 +42,22 @@ class _HomeScreenState extends State<HomeScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               _buildSearchView(),
-              SizedBox(height: 12),
-              HomeCarouselSlider(),
-              SizedBox(height: 16),
+              const SizedBox(height: 12),
+              const HomeCarouselSlider(),
+              const SizedBox(height: 16),
               SectionHeader(
-                title: context.localization.all_categories,
+                title: context.localizations.all_categories,
                 oneTabSeeAll: () {
                   Get.find<MainBottomNavIndexController>().moveToCategory();
                 },
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               _buildCategoryView(),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               SectionHeader(
-                title: context.localization.popular,
+                title: context.localizations.popular,
                 oneTabSeeAll: () {
                   Navigator.pushNamed(
                     context,
@@ -65,11 +65,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   );
                 },
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               _buildPopularProductView(),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               SectionHeader(
-                title: context.localization.special,
+                title: context.localizations.special,
                 oneTabSeeAll: () {
                   Navigator.pushNamed(
                     context,
@@ -77,11 +77,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   );
                 },
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               _buildSpecialProductView(),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               SectionHeader(
-                title: context.localization.snew,
+                title: context.localizations.snew,
                 oneTabSeeAll: () {
                   Navigator.pushNamed(
                     context,
@@ -89,9 +89,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   );
                 },
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               _buildNewProductView(),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
             ],
           ),
         ),
@@ -105,7 +105,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: GetBuilder<NewProductListController>(
         builder: (controller) {
           return controller.inProgress
-              ? Center(
+              ? const Center(
                 child: SizedBox(
                   height: 40,
                   width: 40,
@@ -117,7 +117,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     controller.producvtList.length > 10
                         ? 10
                         : controller.producvtList.length,
-                padding: EdgeInsets.symmetric(horizontal: 14),
+                padding: const EdgeInsets.symmetric(horizontal: 14),
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   ProductModel productModel = controller.producvtList[index];
@@ -133,13 +133,14 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+
   Widget _buildSpecialProductView() {
     return SizedBox(
       height: 190,
       child: GetBuilder<SpecialProductListController>(
         builder: (controller) {
           return controller.inProgress
-              ? Center(
+              ? const Center(
                 child: SizedBox(
                   height: 40,
                   width: 40,
@@ -167,13 +168,14 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+
   Widget _buildPopularProductView() {
     return SizedBox(
       height: 190,
       child: GetBuilder<PopularProductListController>(
         builder: (controller) {
           return controller.inProgress
-              ? Center(
+              ? const Center(
                 child: SizedBox(
                   height: 40,
                   width: 40,
@@ -185,7 +187,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     controller.producvtList.length > 10
                         ? 10
                         : controller.producvtList.length,
-                padding: EdgeInsets.symmetric(horizontal: 14),
+                padding: const EdgeInsets.symmetric(horizontal: 14),
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   ProductModel productModel = controller.producvtList[index];
@@ -208,7 +210,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: TextField(
         textInputAction: TextInputAction.search,
         decoration: InputDecoration(
-          hintText: context.localization.search,
+          hintText: context.localizations.search,
           prefixIcon: Icon(Icons.search, color: Colors.grey.shade400),
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.grey.shade300),
@@ -229,7 +231,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: GetBuilder<CategoryController>(
         builder: (controller) {
           return controller.inProgress
-              ? Center(
+              ? const Center(
                 child: SizedBox(
                   height: 40,
                   width: 40,
@@ -241,7 +243,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     controller.categoryList.length > 10
                         ? 10
                         : controller.categoryList.length,
-                padding: EdgeInsets.symmetric(horizontal: 14),
+                padding: const EdgeInsets.symmetric(horizontal: 14),
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   CategoryModel categoryModel = controller.categoryList[index];
@@ -263,21 +265,21 @@ class _HomeScreenState extends State<HomeScreen> {
       forceMaterialTransparency: true,
       title: SvgPicture.asset(AssetsPath.logoNavSvg, height: 36),
       actions: [
-        SizedBox(width: 12),
+        const SizedBox(width: 12),
         CircleAvatar(
           backgroundColor: Colors.grey.shade50,
           child: IconButton(
-            icon: Icon(Icons.notifications_none),
+            icon: const Icon(Icons.notifications_none),
             color: Colors.grey.shade600,
             onPressed: () {},
           ),
         ),
-        SizedBox(width: 14),
+        const SizedBox(width: 14),
         CircleAvatar(
           backgroundColor: Colors.grey.shade50,
-          child: IconButton(onPressed: () {}, icon: Icon(Icons.person)),
+          child: IconButton(onPressed: () {}, icon: const Icon(Icons.person)),
         ),
-        SizedBox(width: 14),
+        const SizedBox(width: 14),
       ],
     );
   }
