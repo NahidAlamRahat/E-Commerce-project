@@ -26,7 +26,10 @@ class DefaultFirebaseOptions {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        return ios;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for ios - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.macOS:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for macos - '
@@ -50,20 +53,10 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBPM2C40T1lL4hIwdUmmrSp3ZA_FPl8Erk',
-    appId: '1:82363910922:android:860f13dbdb92ff4b4488f3',
-    messagingSenderId: '82363910922',
-    projectId: 'e-commerce-project-507fc',
-    storageBucket: 'e-commerce-project-507fc.firebasestorage.app',
-  );
-
-
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBCxhkBve9sFFGJ-gUPqWOVMt3pVrYDWWI',
-    appId: '1:82363910922:ios:486a67b500605c564488f3',
-    messagingSenderId: '82363910922',
-    projectId: 'e-commerce-project-507fc',
-    storageBucket: 'e-commerce-project-507fc.firebasestorage.app',
-    iosBundleId: 'com.example.eCommerce',
+    apiKey: 'AIzaSyBhk7R0ciUmOfvU2T8GVc0QhyzOB8V0jHw',
+    appId: '1:700203064706:android:aa13e27fc0a8685470839b',
+    messagingSenderId: '700203064706',
+    projectId: 'crafty-bay-85e22',
+    storageBucket: 'crafty-bay-85e22.firebasestorage.app',
   );
 }
