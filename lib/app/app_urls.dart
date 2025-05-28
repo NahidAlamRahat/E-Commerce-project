@@ -9,6 +9,8 @@ class AppUrls {
   static const String productListUrl = '$_baseUrl/products';
   static const String card = '$_baseUrl/cart';
   static const String wishlist = '$_baseUrl/wishlist';
+  static const String profileUrl = '$_baseUrl/profile';
+
 
   static String cardById(String id) => '$_baseUrl/cart/$id';
 

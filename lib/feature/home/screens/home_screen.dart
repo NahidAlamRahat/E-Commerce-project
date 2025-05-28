@@ -6,16 +6,17 @@ import 'package:e_commerce/feature/common/controller/main_bottom_nav_index_contr
 import 'package:e_commerce/feature/common/controller/new_product_list_controller.dart';
 import 'package:e_commerce/feature/common/controller/popular_product_list_controller.dart';
 import 'package:e_commerce/feature/common/controller/special_product_list_controller.dart';
-import 'package:e_commerce/feature/common/model/category_model.dart';
+import 'package:e_commerce/feature/common/data/model/category_model.dart';
 import 'package:e_commerce/feature/common/widgets/category_item.dart';
 import 'package:e_commerce/feature/common/widgets/product_card.dart';
 import 'package:e_commerce/feature/home/widgets/HomeCarouselSlider.dart';
 import 'package:e_commerce/feature/home/widgets/app_bar_acction_button.dart';
 import 'package:e_commerce/feature/home/widgets/section_header.dart';
-import 'package:e_commerce/feature/product/data/product_model.dart';
+import 'package:e_commerce/feature/product/data/model/product_model.dart';
 import 'package:e_commerce/feature/product/screens/new_product_list_screen.dart';
 import 'package:e_commerce/feature/product/screens/popular_product_list_screen.dart';
 import 'package:e_commerce/feature/product/screens/special_product_list_screen.dart';
+import 'package:e_commerce/feature/profile/ui/screen/update_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -267,7 +268,10 @@ class _HomeScreenState extends State<HomeScreen> {
       actions: [
         AppBarActionButton(
           icon: Icons.person_outline,
-          onTap: () {},
+          onTap: () {
+            Navigator.pushNamed(context, UpdateScreen.name);
+          },
+
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),

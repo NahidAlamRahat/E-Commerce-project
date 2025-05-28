@@ -1,4 +1,4 @@
-import 'package:e_commerce/feature/product/data/review_model.dart';
+import 'package:e_commerce/feature/product/data/model/review_model.dart';
 import 'package:flutter/material.dart';
 
 class ReviewItem extends StatelessWidget {

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../common/controller/category_controller.dart';
 import '../../common/controller/main_bottom_nav_index_controller.dart';
-import '../../common/model/category_model.dart';
+import '../../common/data/model/category_model.dart';
 import '../../common/widgets/category_item.dart';
 
 class CategoryScreen extends StatefulWidget {
@@ -59,28 +59,28 @@ class _CategoryScreenState extends State<CategoryScreen> {
                   controller: _scrollController,
                   slivers: [
                     controller.inProgress == true
-                        ? SliverToBoxAdapter(
-                          child: Center(child: CircularProgressIndicator()),
-                        )
+                        ? const SliverToBoxAdapter(
+                      child: Center(child: CircularProgressIndicator()),
+                    )
                         : SliverGrid(
-                          gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 4,
-                                mainAxisSpacing: 16,
-                              ),
-                          delegate: SliverChildBuilderDelegate(
-                            childCount: controller.categoryList.length,
+                      gridDelegate:
+                      const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 4,
+                        mainAxisSpacing: 16,
+                      ),
+                      delegate: SliverChildBuilderDelegate(
+                        childCount: controller.categoryList.length,
                             (context, index) {
-                              CategoryModel categoryModel =
-                                  controller.categoryList[index];
-                              return FittedBox(
-                                child: CategoryItem(
-                                  categoryModel: categoryModel,
-                                ),
-                              );
-                            },
-                          ),
-                        ),
+                          CategoryModel categoryModel =
+                          controller.categoryList[index];
+                          return FittedBox(
+                            child: CategoryItem(
+                              categoryModel: categoryModel,
+                            ),
+                          );
+                        },
+                      ),
+                    ),
                     const SliverToBoxAdapter(
                       child: Padding(padding: EdgeInsets.symmetric(vertical: 10)),
                     ),

@@ -30,8 +30,8 @@ class CraftyBayApp extends StatelessWidget {
       ),
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
-        appBarTheme: AppBarTheme(backgroundColor: Colors.white),
-        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        appBarTheme: const AppBarTheme(backgroundColor: Colors.white),
+        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
           backgroundColor: Colors.white,
           selectedItemColor: AppColors.themeColor,
           unselectedItemColor: Colors.grey,

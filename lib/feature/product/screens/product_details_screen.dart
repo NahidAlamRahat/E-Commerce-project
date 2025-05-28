@@ -5,7 +5,7 @@ import 'package:e_commerce/feature/auth/ui/controller/auth_controller.dart';
 import 'package:e_commerce/feature/auth/ui/screens/sign_in_screen.dart';
 import 'package:e_commerce/feature/product/controller/add_to_card_controller.dart';
 import 'package:e_commerce/feature/product/controller/product_details_controller.dart';
-import 'package:e_commerce/feature/product/data/product_model.dart';
+import 'package:e_commerce/feature/product/data/model/product_model.dart';
 import 'package:e_commerce/feature/product/screens/product_review_screen.dart';
 import 'package:e_commerce/feature/product/widgets/color_picker.dart';
 import 'package:e_commerce/feature/product/widgets/product_view_carousel_slider.dart';

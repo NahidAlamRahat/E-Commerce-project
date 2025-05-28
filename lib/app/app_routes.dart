@@ -12,41 +12,58 @@ import 'package:e_commerce/feature/product/screens/product_review_screen.dart';
 import 'package:e_commerce/feature/product/screens/special_product_list_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../feature/profile/ui/screen/update_profile.dart';
+
 class AppRoutes {
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     debugPrint('Routes>>>>${settings.name}');
     late Widget route;
     if (settings.name == SplashScreen.name) {
       route = const SplashScreen();
-    } else if (settings.name == SignInScreen.name) {
+    }
+    else if (settings.name == SignInScreen.name) {
       route = const SignInScreen();
-    } else if (settings.name == SignUpScreen.name) {
+    }
+    else if (settings.name == SignUpScreen.name) {
       route = const SignUpScreen();
-    } else if (settings.name == OtpVerificationScreen.name) {
+    }
+    else if (settings.name == OtpVerificationScreen.name) {
       String email = settings.arguments as String;
       route = OtpVerificationScreen(email: email);
-    } else if (settings.name == MainBottomNavScreen.name) {
+    }
+    else if (settings.name == MainBottomNavScreen.name) {
       route = const MainBottomNavScreen();
-    } else if (settings.name == ProductListScreen.name) {
+    }
+    else if (settings.name == ProductListScreen.name) {
       Map<String, dynamic> category =
           settings.arguments as Map<String, dynamic>;
       route = ProductListScreen(category: category);
-    } else if (settings.name == PopularProductListScreen.name) {
+    }
+    else if (settings.name == PopularProductListScreen.name) {
       route = const PopularProductListScreen();
-    } else if (settings.name == SpecialProductListScreen.name) {
+    }
+    else if (settings.name == SpecialProductListScreen.name) {
       route = const SpecialProductListScreen();
-    }else if (settings.name == NewProductListScreen.name) {
+    }
+    else if (settings.name == NewProductListScreen.name) {
       route = const NewProductListScreen();
-    } else if (settings.name == ProductDetailsScreen.name) {
+    }
+    else if (settings.name == ProductDetailsScreen.name) {
       String id = settings.arguments as String;
       route = ProductDetailsScreen(id: id);
-    } else if (settings.name == ProductReviewScreen.name) {
+    }
+    else if (settings.name == ProductReviewScreen.name) {
       String productId = settings.arguments as String;
       route =  ProductReviewScreen(productId: productId);
-    } else if (settings.name == ProductAddReviewScreen.name) {
+    }
+    else if (settings.name == ProductAddReviewScreen.name) {
       String productId = settings.arguments as String;
       route =  ProductAddReviewScreen(id: productId,);
     }
+    else if (settings.name == UpdateScreen.name) {
+      route = const UpdateScreen();
+    }
+
     return MaterialPageRoute(
       builder: (context) {
         return route;

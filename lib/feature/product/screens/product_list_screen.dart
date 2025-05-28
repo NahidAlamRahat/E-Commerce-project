@@ -1,6 +1,6 @@
 import 'package:e_commerce/feature/common/widgets/product_card.dart';
 import 'package:e_commerce/feature/product/controller/product_list_controller.dart';
-import 'package:e_commerce/feature/product/data/product_get_request_model.dart';
+import 'package:e_commerce/feature/product/data/model/product_get_request_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

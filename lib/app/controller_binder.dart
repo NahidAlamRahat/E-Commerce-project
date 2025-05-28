@@ -12,6 +12,8 @@ import 'package:e_commerce/feature/common/controller/popular_product_list_contro
 import 'package:e_commerce/feature/common/controller/special_product_list_controller.dart';
 import 'package:get/get.dart';
 
+import '../feature/auth/ui/controller/update_profile_controller.dart';
+
 class ControllerBinder extends Bindings{
   @override
   void dependencies() {
@@ -27,5 +29,7 @@ class ControllerBinder extends Bindings{
     Get.put(SpecialProductListController());
     Get.put(NewProductListController());
     Get.put(ProductCardController());
+    Get.put(UpdateProfileController());
+
   }
 }
