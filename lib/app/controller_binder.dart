@@ -22,7 +22,7 @@ class ControllerBinder extends Bindings{
     Get.put(AuthController());
     Get.put(SignInController());
     Get.lazyPut(() =>  SignUpController());
-    Get.lazyPut(() =>  OtpVerifyicationController());
+    Get.lazyPut(() =>  VerifyOtpController());
     Get.put(HomeSliderController());
     Get.put(CategoryController());
     Get.put(PopularProductListController());

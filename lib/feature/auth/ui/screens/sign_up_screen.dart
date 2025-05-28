@@ -17,10 +17,10 @@ class SignUpScreen extends StatefulWidget {
   static String name = '/signUp';
 
   @override
-  State<SignUpScreen> createState() => _SignUpScreenState();
+  State<SignUpScreen> createState() => SignUpScreenState();
 }
 
-class _SignUpScreenState extends State<SignUpScreen> {
+class SignUpScreenState extends State<SignUpScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   final TextEditingController _firstNameTEController = TextEditingController();
@@ -39,7 +39,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 35),
+            padding: const EdgeInsets.symmetric(horizontal: 35),
             child: Form(
               key: _formKey,
               autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -137,13 +137,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       return null;
                     },
                   ),
-                  SizedBox(height: 14),
+                  const SizedBox(height: 14),
                   TextFormField(
                     maxLines: 3,
                     controller: _addressTEController,
                     textInputAction: TextInputAction.done,
                     decoration: InputDecoration(
-                      contentPadding: EdgeInsets.symmetric(
+                      contentPadding: const EdgeInsets.symmetric(
                         horizontal: 16,
                         vertical: 10,
                       ),
@@ -156,11 +156,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       return null;
                     },
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   GetBuilder<SignUpController>(
                     builder: (controller) {
                       return controller.inProgress == true
-                          ? Center(child: CircularProgressIndicator())
+                          ? const Center(child: CircularProgressIndicator())
                           : ElevatedButton(
                             onPressed: () {
                               if (_formKey.currentState!.validate()) {

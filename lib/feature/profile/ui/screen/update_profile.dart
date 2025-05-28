@@ -1,7 +1,9 @@
+import 'package:e_commerce/core/widgets/show_custom_alert_dialog.dart';
 import 'package:e_commerce/feature/auth/ui/controller/auth_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../auth/ui/controller/update_profile_controller.dart';
+import '../../../auth/ui/screens/sign_in_screen.dart';
 
 class UpdateScreen extends StatefulWidget {
   static String name = 'update/screen';
@@ -107,6 +109,40 @@ class _UpdateScreenState extends State<UpdateScreen> {
                         ? const CircularProgressIndicator()
                         : const Text('Update Profile'),
                   ),
+                  const SizedBox(height: 30),
+                  Center(
+                    child: TextButton(
+                        onPressed: () {
+                          showCustomAlertDialog(
+                            context,
+                            text: const Text(
+                              'Logout!',
+                              style: TextStyle(fontSize: 20),
+                            ),
+                            message: 'Are you sure you want to logout?',
+                            onConfirm: () async {
+                              await _authController.clearUserData();
+                              Get.offNamedUntil(SignInScreen.name, (route) => false,);
+                            },
+                          );
+                        },
+
+                      style: TextButton.styleFrom(
+                        foregroundColor: Colors.red, // Text color
+                        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                        textStyle: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 1.2,
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
+                      child: const Text('LOGOUT'),
+                    ),
+                  )
+
                 ],
               ),
             ),

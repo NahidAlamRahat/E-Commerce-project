@@ -4,6 +4,7 @@ import 'package:e_commerce/core/widgets/show_snack_Bar.dart';
 import 'package:e_commerce/feature/auth/data/model/sign_in_request_model.dart';
 import 'package:e_commerce/feature/auth/ui/screens/sign_up_screen.dart';
 import 'package:e_commerce/feature/auth/ui/widgets/app_logo.dart';
+import 'package:e_commerce/feature/common/screens/main_botton_nav_screen.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -89,7 +90,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     return controller.inProgress == true
                         ? Center(child: CircularProgressIndicator())
                         : ElevatedButton(
-                          onPressed: _onTabSignIn,
+                          onPressed: _onTapSignInButton,
                           child: Text(
                             context.localizations.signIn,
                             style: TextStyle(color: Colors.white),
@@ -105,7 +106,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     children: [
                       TextSpan(
                         text: context.localizations.signUp,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           color: AppColors.themeColor,
                         ),
@@ -126,19 +127,25 @@ class _SignInScreenState extends State<SignInScreen> {
     );
   }
 
-  Future<void> _onTabSignIn() async {
-    if (_fromKey.currentState!.validate()) {
-      bool isSuccess = await signInController.signIn(
-        SignInRequestModel(
-          email: _emailTEController.text.trim(),
-          password: _passTEController.text,
-        ),
-      );
-      if (isSuccess) {
-        Get.back();
-      } else {
+
+  Future <void> _onTapSignInButton()async {
+    if(_fromKey.currentState!.validate()){
+
+      SignInRequestModel signInRequestModel = SignInRequestModel(
+          email: _emailTEController.text.trim(), password: _passTEController.text);
+      final bool isSuccess = await signInController.signIn(signInRequestModel);
+
+      if(isSuccess){
+        Navigator.pushNamedAndRemoveUntil(context,MainBottomNavScreen.name , (route) => false,) ;
+      }
+      else{
         showSnackBarMessage(context, signInController.errorMsg, true);
       }
+
     }
+
+
   }
+
+
 }

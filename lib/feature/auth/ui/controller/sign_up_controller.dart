@@ -32,4 +32,5 @@ class SignUpController extends GetxController {
     update();
     return isSuccess;
   }
+
 }
