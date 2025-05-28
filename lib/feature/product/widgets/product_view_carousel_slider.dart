@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:crafty_bay/app/app_color.dart';
-import 'package:crafty_bay/feature/product/data/product_model.dart';
+import 'package:e_commerce/app/app_color.dart';
+import 'package:e_commerce/feature/product/data/product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -46,7 +46,7 @@ class _ProductViewCarouselSliderState extends State<ProductViewCarouselSlider> {
                           ),
                           child: ColoredBox(
                             color: Colors.grey.withOpacity(0.8),
-                            child: SizedBox(
+                            child: const SizedBox(
                               width: double.maxFinite,
                               height: double.maxFinite,
                             ),

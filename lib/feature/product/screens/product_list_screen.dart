@@ -1,6 +1,6 @@
-import 'package:crafty_bay/feature/common/widgets/product_card.dart';
-import 'package:crafty_bay/feature/product/controller/product_list_controller.dart';
-import 'package:crafty_bay/feature/product/data/product_get_request_model.dart';
+import 'package:e_commerce/feature/common/widgets/product_card.dart';
+import 'package:e_commerce/feature/product/controller/product_list_controller.dart';
+import 'package:e_commerce/feature/product/data/product_get_request_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -8,7 +8,7 @@ class ProductListScreen extends StatefulWidget {
   const ProductListScreen({super.key, required this.category});
 
   static String name = "/ProductList";
-  final Map<String,dynamic> category;
+  final Map<String, dynamic> category;
 
   @override
   State<ProductListScreen> createState() => _ProductListScreenState();
@@ -22,15 +22,17 @@ class _ProductListScreenState extends State<ProductListScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    _productController.getProduct(ProductGetRequestModel(category: widget.category['id']??''));
+    _productController.getProduct(
+        ProductGetRequestModel(category: widget.category['id'] ?? ''));
     _scrollController.addListener(pagination);
   }
-  void pagination(){
-    if(_scrollController.position.extentAfter < 300){
-      _productController.getProduct(ProductGetRequestModel(category: widget.category['id']??''));
+
+  void pagination() {
+    if (_scrollController.position.extentAfter < 300) {
+      _productController.getProduct(
+          ProductGetRequestModel(category: widget.category['id'] ?? ''));
     }
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -46,47 +48,48 @@ class _ProductListScreenState extends State<ProductListScreen> {
         forceMaterialTransparency: true,
       ),
       body: GetBuilder(
-        init: _productController,
+          init: _productController,
           builder: (controller) {
             return controller.inProgress
                 ? Center(child: CircularProgressIndicator())
                 : RefreshIndicator(
-              onRefresh: () async {
-                _productController.refrash(ProductGetRequestModel(category: widget.category['id']??''));
-              },
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 6),
-                child: CustomScrollView(
-                  controller: _scrollController,
-                  slivers: [
-                    SliverGrid(
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        mainAxisExtent: 200,
-                        mainAxisSpacing: 20,
-                      ),
-                      delegate: SliverChildBuilderDelegate(
-                          childCount: controller.producvtList.length,
-                              (context, index) {
-                            return FittedBox(
-                              child: ProductCart(
-                                products: controller.producvtList[index],
+                    onRefresh: () async {
+                      _productController.refrash(ProductGetRequestModel(
+                          category: widget.category['id'] ?? ''));
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 6),
+                      child: CustomScrollView(
+                        controller: _scrollController,
+                        slivers: [
+                          SliverGrid(
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2,
+                              mainAxisExtent: 200,
+                              mainAxisSpacing: 20,
+                            ),
+                            delegate: SliverChildBuilderDelegate(
+                                childCount: controller.producvtList.length,
+                                (context, index) {
+                              return FittedBox(
+                                child: ProductCart(
+                                  products: controller.producvtList[index],
+                                ),
+                              );
+                            }),
+                          ),
+                          if (controller.paginationInProgress)
+                            const SliverToBoxAdapter(
+                              child: Center(
+                                child: CircularProgressIndicator(),
                               ),
-                            );
-                          }),
+                            )
+                        ],
+                      ),
                     ),
-                    if(controller.paginationInProgress)
-                      SliverToBoxAdapter(
-                        child: Center(
-                          child: CircularProgressIndicator(),
-                        ),
-                      )
-                  ],
-                ),
-              ),
-            );
-          }
-      ),
+                  );
+          }),
     );
   }
 }

@@ -1,5 +1,5 @@
-import 'package:crafty_bay/feature/common/controller/special_product_list_controller.dart';
-import 'package:crafty_bay/feature/common/widgets/product_card.dart';
+import 'package:e_commerce/feature/common/controller/special_product_list_controller.dart';
+import 'package:e_commerce/feature/common/widgets/product_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -37,9 +37,9 @@ class _SpecialProductListScreenState extends State<SpecialProductListScreen> {
           onPressed: () {
             Get.back();
           },
-          icon: Icon(Icons.arrow_back_ios_new_outlined),
+          icon: const Icon(Icons.arrow_back_ios_new_outlined),
         ),
-        title: Text('Special', style: TextStyle(fontSize: 24)),
+        title: const Text('Special', style: TextStyle(fontSize: 24)),
         forceMaterialTransparency: true,
       ),
       body: GetBuilder<SpecialProductListController>(
@@ -56,7 +56,7 @@ class _SpecialProductListScreenState extends State<SpecialProductListScreen> {
                   controller: _scrollController,
                   slivers: [
                     SliverGrid(
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
                         mainAxisExtent: 200,
                         mainAxisSpacing: 20,
@@ -72,7 +72,7 @@ class _SpecialProductListScreenState extends State<SpecialProductListScreen> {
                           }),
                     ),
                     if(controller.paginationInProgress)
-                      SliverToBoxAdapter(
+                      const SliverToBoxAdapter(
                         child: Center(
                           child: CircularProgressIndicator(),
                         ),

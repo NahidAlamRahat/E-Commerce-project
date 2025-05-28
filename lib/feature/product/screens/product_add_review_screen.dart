@@ -1,8 +1,9 @@
-import 'package:crafty_bay/core/widgets/show_snack_Bar.dart';
-import 'package:crafty_bay/feature/product/controller/add_review_controller.dart';
+import 'package:e_commerce/core/widgets/show_snack_Bar.dart';
+import 'package:e_commerce/feature/product/controller/add_review_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+
 
 class ProductAddReviewScreen extends StatefulWidget {
   const ProductAddReviewScreen({super.key, required this.id});
@@ -35,7 +36,7 @@ class _ProductAddReviewScreenState extends State<ProductAddReviewScreen> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 28),
+          padding:  EdgeInsets.symmetric(horizontal: 28),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -46,14 +47,14 @@ class _ProductAddReviewScreenState extends State<ProductAddReviewScreen> {
                 direction: Axis.horizontal,
                 allowHalfRating: false,
                 itemCount: 5,
-                itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+                itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
                 itemBuilder:
-                    (context, _) => Icon(Icons.star, color: Colors.amber),
+                    (context, _) => const Icon(Icons.star, color: Colors.amber),
                 onRatingUpdate: (rating) {
                   ratingCount = rating.toInt();
                 },
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               TextField(
                 controller: _reviewController,
                 maxLines: 7,
@@ -72,19 +73,19 @@ class _ProductAddReviewScreenState extends State<ProductAddReviewScreen> {
                   return controller.inProgress == true
                       ? Center(child: CircularProgressIndicator())
                       : ElevatedButton(
-                        onPressed: () {
-                          if (_reviewController.text.trim().isNotEmpty) {
-                            addReview();
-                          } else {
-                            showSnackBarMessage(
-                              context,
-                              'Place write somthing',
-                              true,
-                            );
-                          }
-                        },
-                        child: Text('Submit'),
-                      );
+                    onPressed: () {
+                      if (_reviewController.text.trim().isNotEmpty) {
+                        addReview();
+                      } else {
+                        showSnackBarMessage(
+                          context,
+                          'Place write somthing',
+                          true,
+                        );
+                      }
+                    },
+                    child: Text('Submit'),
+                  );
                 },
               ),
             ],

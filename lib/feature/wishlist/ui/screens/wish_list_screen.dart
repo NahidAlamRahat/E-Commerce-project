@@ -1,7 +1,7 @@
-import 'package:crafty_bay/core/extensions/app_localization_extension.dart';
-import 'package:crafty_bay/feature/common/controller/main_bottom_nav_index_controller.dart';
-import 'package:crafty_bay/feature/wishlist/ui/controller/wish_list_controller.dart';
-import 'package:crafty_bay/feature/wishlist/ui/widget/wish_list_widget.dart';
+import 'package:e_commerce/core/extensions/app_localization_extension.dart';
+import 'package:e_commerce/feature/common/controller/main_bottom_nav_index_controller.dart';
+import 'package:e_commerce/feature/wishlist/ui/controller/wish_list_controller.dart';
+import 'package:e_commerce/feature/wishlist/ui/widget/wish_list_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -46,16 +46,16 @@ class _WishListScreenState extends State<WishListScreen> {
             onPressed: () {
               Get.find<MainBottomNavIndexController>().backHome();
             },
-            icon: Icon(Icons.arrow_back_ios_new_outlined),
+            icon: const Icon(Icons.arrow_back_ios_new_outlined),
           ),
-          title: Text(context.localization.wish, style: TextStyle(fontSize: 24)),
+          title: Text(context.localizations.wish, style: const TextStyle(fontSize: 24)),
           forceMaterialTransparency: true,
         ),
         body: GetBuilder(
           init: _wishListController,
           builder: (controller) {
             return controller.inProgress
-                ? Center(child: CircularProgressIndicator())
+                ? const Center(child: CircularProgressIndicator())
                 : RefreshIndicator(
               onRefresh: () async {
                 _wishListController.refrash();
@@ -66,7 +66,7 @@ class _WishListScreenState extends State<WishListScreen> {
                   controller: _scrollController,
                   slivers: [
                     SliverGrid(
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
                         mainAxisExtent: 200,
                         mainAxisSpacing: 20,
@@ -82,7 +82,7 @@ class _WishListScreenState extends State<WishListScreen> {
                           }),
                     ),
                     if(controller.paginationInProgress)
-                      SliverToBoxAdapter(
+                      const SliverToBoxAdapter(
                         child: Center(
                           child: CircularProgressIndicator(),
                         ),

@@ -22,6 +22,7 @@ class NetworkResponse {
 class NetworkCaller {
   final Logger _logger = Logger();
 
+
   Future<NetworkResponse> getRequest({
     required String url,
     Map<String, dynamic>? queryParams,

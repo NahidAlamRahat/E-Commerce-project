@@ -1,7 +1,7 @@
-import 'package:crafty_bay/app/app_color.dart';
-import 'package:crafty_bay/app/asset_path.dart';
-import 'package:crafty_bay/feature/product/screens/product_details_screen.dart';
-import 'package:crafty_bay/feature/wishlist/model/wish_list_model.dart';
+import 'package:e_commerce/app/app_color.dart';
+import 'package:e_commerce/app/asset_path.dart';
+import 'package:e_commerce/feature/product/screens/product_details_screen.dart';
+import 'package:e_commerce/feature/wishlist/model/wish_list_model.dart';
 import 'package:flutter/material.dart';
 
 class WishListWidget extends StatelessWidget {
@@ -16,7 +16,7 @@ class WishListWidget extends StatelessWidget {
       },
       child: Container(
         width: 140,
-        margin: EdgeInsets.symmetric(horizontal: 8),
+        margin: const EdgeInsets.symmetric(horizontal: 8),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -50,7 +50,7 @@ class WishListWidget extends StatelessWidget {
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      child: Icon(
+                      child: const Icon(
                         Icons.favorite,
                         color: AppColors.themeColor,
                         size: 18,
@@ -63,10 +63,10 @@ class WishListWidget extends StatelessWidget {
             SizedBox(height: 8),
             Row(
               children: [
-                Icon(Icons.star, color: Colors.amber, size: 14),
-                Icon(Icons.star, color: Colors.amber, size: 14),
-                Icon(Icons.star, color: Colors.amber, size: 14),
-                Icon(Icons.star, color: Colors.amber, size: 14),
+                const Icon(Icons.star, color: Colors.amber, size: 14),
+                const Icon(Icons.star, color: Colors.amber, size: 14),
+                const Icon(Icons.star, color: Colors.amber, size: 14),
+                const Icon(Icons.star, color: Colors.amber, size: 14),
                 Icon(Icons.star, color: Colors.grey.shade300, size: 16),
               ],
             ),
@@ -74,12 +74,12 @@ class WishListWidget extends StatelessWidget {
               products!.title??'',
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
-              style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black87, height: 1.3),
+              style: const TextStyle(fontWeight: FontWeight.bold,color: Colors.black87, height: 1.3),
             ),
-            SizedBox(height: 2),
+            const SizedBox(height: 2),
             Text(
               '৳${products!.currentPrice} ',
-              style: TextStyle(
+              style: const TextStyle(
                 color: AppColors.themeColor,
                 fontSize: 12,
                 fontWeight: FontWeight.bold,

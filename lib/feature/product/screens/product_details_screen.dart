@@ -1,19 +1,20 @@
-import 'package:crafty_bay/app/app_color.dart';
-import 'package:crafty_bay/core/extensions/app_localization_extension.dart';
-import 'package:crafty_bay/core/widgets/show_snack_Bar.dart';
-import 'package:crafty_bay/feature/auth/ui/controller/auth_controller.dart';
-import 'package:crafty_bay/feature/auth/ui/screens/sign_in_screen.dart';
-import 'package:crafty_bay/feature/common/controller/add_to_wish_controller.dart';
-import 'package:crafty_bay/feature/product/controller/add_to_card_controller.dart';
-import 'package:crafty_bay/feature/product/controller/product_details_controller.dart';
-import 'package:crafty_bay/feature/product/data/product_model.dart';
-import 'package:crafty_bay/feature/product/screens/product_review_screen.dart';
-import 'package:crafty_bay/feature/product/widgets/color_picker.dart';
-import 'package:crafty_bay/feature/product/widgets/increment_decrement_count_widget.dart';
-import 'package:crafty_bay/feature/product/widgets/product_view_carousel_slider.dart';
-import 'package:crafty_bay/feature/product/widgets/size_picker.dart';
+import 'package:e_commerce/app/app_color.dart';
+import 'package:e_commerce/core/extensions/app_localization_extension.dart';
+import 'package:e_commerce/core/widgets/show_snack_Bar.dart';
+import 'package:e_commerce/feature/auth/ui/controller/auth_controller.dart';
+import 'package:e_commerce/feature/auth/ui/screens/sign_in_screen.dart';
+import 'package:e_commerce/feature/product/controller/add_to_card_controller.dart';
+import 'package:e_commerce/feature/product/controller/product_details_controller.dart';
+import 'package:e_commerce/feature/product/data/product_model.dart';
+import 'package:e_commerce/feature/product/screens/product_review_screen.dart';
+import 'package:e_commerce/feature/product/widgets/color_picker.dart';
+import 'package:e_commerce/feature/product/widgets/product_view_carousel_slider.dart';
+import 'package:e_commerce/feature/product/widgets/size_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../common/controller/add_to_wish_controller.dart';
+import '../widgets/increment_decrement_count_widget.dart' show IncrementDecrementCountWidget;
 
 class ProductDetailsScreen extends StatefulWidget {
   final String id;
@@ -114,11 +115,11 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(height: 24),
-        Text(context.localization.description, style: TextStyle(fontWeight: FontWeight.bold)),
+        Text(context.localizations.description, style: const TextStyle(fontWeight: FontWeight.bold)),
         SizedBox(height: 6),
         Text(
           controller.productDetails?.description ?? '',
-          style: TextStyle(fontWeight: FontWeight.w400, color: Colors.grey),
+          style: const TextStyle(fontWeight: FontWeight.w400, color: Colors.grey),
         ),
       ],
     );
@@ -135,8 +136,8 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
             Navigator.pushNamed(context, ProductReviewScreen.name, arguments: widget.id);
           },
           child: Text(
-            context.localization.review,
-            style: TextStyle(
+            context.localizations.review,
+            style: const TextStyle(
               color: AppColors.themeColor,
               fontWeight: FontWeight.bold,
             ),
@@ -153,7 +154,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
         Expanded(
           child: Text(
             controller.productDetails?.title ?? "",
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w500,
               color: Colors.black87,
@@ -174,8 +175,8 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(height: 16),
-        Text(context.localization.size, style: TextStyle(fontWeight: FontWeight.bold)),
+        const SizedBox(height: 16),
+        Text(context.localizations.size, style: const TextStyle(fontWeight: FontWeight.bold)),
         SizedBox(height: 6),
         SizePicker(
           sizes: sizes ?? [],
@@ -192,7 +193,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(height: 12),
-        Text(context.localization.color, style: TextStyle(fontWeight: FontWeight.bold)),
+        Text(context.localizations.color, style: TextStyle(fontWeight: FontWeight.bold)),
         SizedBox(height: 6),
         ColorPicker(
           colors: colors ?? [],
@@ -234,7 +235,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
 
                             bool isValid = Get.find<AuthController>().isValid();
                             if (isValid == false) {
-                              Get.to(SignInScreen());
+                              Get.to(const SignInScreen());
                               return;
                             }
 
@@ -254,7 +255,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                               );
                             }
                           },
-                          icon: Icon(
+                          icon: const Icon(
                             Icons.favorite_border,
                             color: AppColors.themeColor,
                           ),
@@ -274,10 +275,10 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
         return Container(
           height: 70,
           width: double.maxFinite,
-          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
           decoration: BoxDecoration(
             color: Colors.teal.shade50,
-            borderRadius: BorderRadius.only(
+            borderRadius: const BorderRadius.only(
               topRight: Radius.circular(16),
               topLeft: Radius.circular(16),
             ),
@@ -290,7 +291,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      context.localization.price,
+                      context.localizations.price,
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                     Text(
@@ -343,7 +344,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                       borderRadius: BorderRadius.circular(30),
                     ),
                   ),
-                  child: Text(context.localization.addToCard),
+                  child: Text(context.localizations.addToCard),
                 ),
               ),
             ],

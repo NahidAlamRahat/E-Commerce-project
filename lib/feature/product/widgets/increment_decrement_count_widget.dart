@@ -1,4 +1,4 @@
-import 'package:crafty_bay/app/app_color.dart';
+import 'package:e_commerce/app/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -42,17 +42,17 @@ class _IncrementDecrementCountWidgetState
               borderRadius: BorderRadius.circular(4),
               color: AppColors.themeColor,
             ),
-            child: Icon(Icons.add, color: Colors.white),
+            child: const Icon(Icons.add, color: Colors.white),
           ),
         ),
-        SizedBox(width: 8),
+        const SizedBox(width: 8),
         Obx(
           () =>  Text(
             '${count.value}',
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           ),
         ),
-        SizedBox(width: 8),
+        const SizedBox(width: 8),
         GestureDetector(
           onTap: () {
             switch (count.value) {
@@ -72,7 +72,7 @@ class _IncrementDecrementCountWidgetState
                         ? AppColors.themeColor.withOpacity(0.6)
                         : AppColors.themeColor,
               ),
-              child: Icon(Icons.remove, color: Colors.white),
+              child: const Icon(Icons.remove, color: Colors.white),
             ),
           ),
         ),

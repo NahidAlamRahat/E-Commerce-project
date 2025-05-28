@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:crafty_bay/app/app_color.dart';
-import 'package:crafty_bay/feature/common/controller/home_slider_controller.dart';
+import 'package:e_commerce/app/app_color.dart';
+import 'package:e_commerce/feature/common/controller/home_slider_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -40,7 +40,7 @@ class _HomeCarouselSliderState extends State<HomeCarouselSlider> {
                             builder: (BuildContext context) {
                               return Container(
                                 width: MediaQuery.of(context).size.width,
-                                margin: EdgeInsets.symmetric(
+                                margin: const EdgeInsets.symmetric(
                                   horizontal: 16,
                                   vertical: 5,
                                 ),
@@ -84,7 +84,7 @@ class _HomeCarouselSliderState extends State<HomeCarouselSlider> {
                 ],
               ),
             )
-            : SizedBox(
+            : const SizedBox(
               height: 190,
               width: double.maxFinite,
               child: Center(

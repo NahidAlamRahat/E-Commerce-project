@@ -1,10 +1,10 @@
-import 'package:crafty_bay/app/app_color.dart';
-import 'package:crafty_bay/core/extensions/app_localization_extension.dart';
-import 'package:crafty_bay/feature/auth/ui/controller/auth_controller.dart';
-import 'package:crafty_bay/feature/card/ui/controller/product_card_controller.dart';
-import 'package:crafty_bay/feature/card/ui/controller/ssl_getway.dart';
-import 'package:crafty_bay/feature/card/ui/widget/card_widget.dart';
-import 'package:crafty_bay/feature/common/controller/main_bottom_nav_index_controller.dart';
+import 'package:e_commerce/app/app_color.dart';
+import 'package:e_commerce/core/extensions/app_localization_extension.dart';
+import 'package:e_commerce/feature/auth/ui/controller/auth_controller.dart';
+import 'package:e_commerce/feature/card/ui/controller/product_card_controller.dart';
+import 'package:e_commerce/feature/card/ui/controller/ssl_getway.dart';
+import 'package:e_commerce/feature/card/ui/widget/card_widget.dart';
+import 'package:e_commerce/feature/common/controller/main_bottom_nav_index_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -41,7 +41,7 @@ class _CardScreenState extends State<CardScreen> {
             },
             icon: Icon(Icons.arrow_back_ios_new),
           ),
-          title: Text(context.localization.card, style: TextStyle(fontSize: 24)),
+          title: Text(context.localizations.card, style: TextStyle(fontSize: 24)),
           forceMaterialTransparency: true,
         ),
         body: GetBuilder(
@@ -100,7 +100,7 @@ class _CardScreenState extends State<CardScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  context.localization.totalPrice,
+                  context.localizations.totalPrice,
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 Text(
@@ -135,7 +135,7 @@ class _CardScreenState extends State<CardScreen> {
                 borderRadius: BorderRadius.circular(30),
               ),
             ),
-            child: Text(context.localization.checkOut),
+            child: Text(context.localizations.checkOut),
           ),
         ],
       ),

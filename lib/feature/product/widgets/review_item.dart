@@ -1,4 +1,4 @@
-import 'package:crafty_bay/feature/product/data/review_model.dart';
+import 'package:e_commerce/feature/product/data/review_model.dart';
 import 'package:flutter/material.dart';
 
 class ReviewItem extends StatelessWidget {
@@ -11,7 +11,7 @@ class ReviewItem extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         Row(
           children: [
             CircleAvatar(

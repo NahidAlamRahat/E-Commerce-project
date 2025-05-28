@@ -10,6 +10,7 @@ import 'package:e_commerce/feature/common/model/category_model.dart';
 import 'package:e_commerce/feature/common/widgets/category_item.dart';
 import 'package:e_commerce/feature/common/widgets/product_card.dart';
 import 'package:e_commerce/feature/home/widgets/HomeCarouselSlider.dart';
+import 'package:e_commerce/feature/home/widgets/app_bar_acction_button.dart';
 import 'package:e_commerce/feature/home/widgets/section_header.dart';
 import 'package:e_commerce/feature/product/data/product_model.dart';
 import 'package:e_commerce/feature/product/screens/new_product_list_screen.dart';
@@ -30,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _buildAppBar(),
+      appBar:_buildAppBar(),
       body: RefreshIndicator(
         onRefresh: () async {
           Get.find<HomeSliderController>().getSliders();
@@ -262,24 +263,24 @@ class _HomeScreenState extends State<HomeScreen> {
 
   AppBar _buildAppBar() {
     return AppBar(
-      forceMaterialTransparency: true,
-      title: SvgPicture.asset(AssetsPath.logoNavSvg, height: 36),
+      title: SvgPicture.asset(AssetsPath.logoNavSvg),
       actions: [
-        const SizedBox(width: 12),
-        CircleAvatar(
-          backgroundColor: Colors.grey.shade50,
-          child: IconButton(
-            icon: const Icon(Icons.notifications_none),
-            color: Colors.grey.shade600,
-            onPressed: () {},
+        AppBarActionButton(
+          icon: Icons.person_outline,
+          onTap: () {},
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: AppBarActionButton(
+            icon: Icons.call_outlined,
+            onTap: () {},
           ),
         ),
-        const SizedBox(width: 14),
-        CircleAvatar(
-          backgroundColor: Colors.grey.shade50,
-          child: IconButton(onPressed: () {}, icon: const Icon(Icons.person)),
+        AppBarActionButton(
+          icon: Icons.notifications_on_outlined,
+          onTap: () {},
         ),
-        const SizedBox(width: 14),
+        SizedBox(width: 8)
       ],
     );
   }

@@ -1,12 +1,15 @@
-import 'package:crafty_bay/app/app_color.dart';
-import 'package:crafty_bay/core/extensions/app_localization_extension.dart';
+import 'package:e_commerce/app/app_color.dart';
+import 'package:e_commerce/core/extensions/app_localization_extension.dart';
 import 'package:flutter/material.dart';
 
 class SectionHeader extends StatelessWidget {
   final String title;
   final VoidCallback oneTabSeeAll;
+
   const SectionHeader({
-    super.key, required this.title, required this.oneTabSeeAll,
+    super.key,
+    required this.title,
+    required this.oneTabSeeAll,
   });
 
   @override
@@ -19,14 +22,17 @@ class SectionHeader extends StatelessWidget {
         children: [
           Text(
             title,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
             ),
           ),
           GestureDetector(
             onTap: oneTabSeeAll,
-            child: Text(context.localization.see_all,style: TextStyle(color: AppColors.themeColor),),
+            child: Text(
+              context.localizations.see_all,
+              style: const TextStyle(color: AppColors.themeColor),
+            ),
           )
         ],
       ),

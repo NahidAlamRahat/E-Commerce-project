@@ -1,7 +1,8 @@
-import 'package:crafty_bay/app/app_urls.dart';
-import 'package:crafty_bay/core/network_caller/network_caller.dart';
-import 'package:crafty_bay/feature/wishlist/model/wish_list_model.dart';
+import 'package:e_commerce/app/app_urls.dart';
+import 'package:e_commerce/feature/wishlist/model/wish_list_model.dart';
 import 'package:get/get.dart';
+
+import '../../../../core/network_caller/network_caller.dart' show NetworkCaller, NetworkResponse;
 
 class WishListController extends GetxController {
   final int _perPageDataCount = 15;

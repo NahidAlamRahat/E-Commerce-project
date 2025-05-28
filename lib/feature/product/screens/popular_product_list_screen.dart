@@ -1,5 +1,5 @@
-import 'package:crafty_bay/feature/common/controller/popular_product_list_controller.dart';
-import 'package:crafty_bay/feature/common/widgets/product_card.dart';
+import 'package:e_commerce/feature/common/controller/popular_product_list_controller.dart';
+import 'package:e_commerce/feature/common/widgets/product_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -37,50 +37,51 @@ class _PopularProductListScreenState extends State<PopularProductListScreen> {
           onPressed: () {
             Get.back();
           },
-          icon: Icon(Icons.arrow_back_ios_new_outlined),
+          icon: const Icon(Icons.arrow_back_ios_new_outlined),
         ),
-        title: Text('Popular', style: TextStyle(fontSize: 24)),
+        title: const Text('Popular', style: TextStyle(fontSize: 24)),
         forceMaterialTransparency: true,
       ),
       body: GetBuilder<PopularProductListController>(
         builder: (controller) {
           return controller.inProgress
-              ? Center(child: CircularProgressIndicator())
+              ? const Center(child: CircularProgressIndicator())
               : RefreshIndicator(
-                onRefresh: () async {
-                  Get.find<PopularProductListController>().refrash();
-                },
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 6),
-                  child: CustomScrollView(
-                    controller: _scrollController,
-                    slivers: [
-                      SliverGrid(
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          mainAxisExtent: 200,
-                          mainAxisSpacing: 20,
+                  onRefresh: () async {
+                    Get.find<PopularProductListController>().refrash();
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 6),
+                    child: CustomScrollView(
+                      controller: _scrollController,
+                      slivers: [
+                        SliverGrid(
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            mainAxisExtent: 200,
+                            mainAxisSpacing: 20,
+                          ),
+                          delegate: SliverChildBuilderDelegate(
+                              childCount: controller.producvtList.length,
+                              (context, index) {
+                            return FittedBox(
+                              child: ProductCart(
+                                products: controller.producvtList[index],
+                              ),
+                            );
+                          }),
                         ),
-                        delegate: SliverChildBuilderDelegate(
-                                childCount: controller.producvtList.length,
-                                (context, index) {
-                          return FittedBox(
-                            child: ProductCart(
-                              products: controller.producvtList[index],
+                        if (controller.paginationInProgress)
+                          const SliverToBoxAdapter(
+                            child: Center(
+                              child: CircularProgressIndicator(),
                             ),
-                          );
-                        }),
-                      ),
-                      if(controller.paginationInProgress)
-                      SliverToBoxAdapter(
-                        child: Center(
-                          child: CircularProgressIndicator(),
-                        ),
-                      )
-                    ],
+                          )
+                      ],
+                    ),
                   ),
-                ),
-              );
+                );
         },
       ),
     );
