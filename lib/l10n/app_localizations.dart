@@ -98,20 +98,26 @@ abstract class AppLocalizations {
   /// No description provided for @version.
   ///
   /// In en, this message translates to:
-  /// **'Version'**
+  /// **'version : '**
   String get version;
 
-  /// No description provided for @welcomeback.
+  /// No description provided for @signIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in'**
+  String get signIn;
+
+  /// No description provided for @welcomeBack.
   ///
   /// In en, this message translates to:
   /// **'Welcome Back'**
-  String get welcomeback;
+  String get welcomeBack;
 
-  /// No description provided for @plzEnterEmailPass.
+  /// No description provided for @enterYorEmailAndPass.
   ///
   /// In en, this message translates to:
-  /// **'Please Enter Your Email and password'**
-  String get plzEnterEmailPass;
+  /// **'Enter your Email and Password'**
+  String get enterYorEmailAndPass;
 
   /// No description provided for @email.
   ///
@@ -125,35 +131,17 @@ abstract class AppLocalizations {
   /// **'Password'**
   String get password;
 
-  /// No description provided for @signIn.
+  /// No description provided for @donTHaveAnAccount.
   ///
   /// In en, this message translates to:
-  /// **'Sign In'**
-  String get signIn;
-
-  /// No description provided for @doNotHaveAccount.
-  ///
-  /// In en, this message translates to:
-  /// **'Don\'t have an account? '**
-  String get doNotHaveAccount;
+  /// **'Don\'t have an account?'**
+  String get donTHaveAnAccount;
 
   /// No description provided for @signUp.
   ///
   /// In en, this message translates to:
-  /// **'Sign Up'**
+  /// **'Sign up'**
   String get signUp;
-
-  /// No description provided for @completeProfile.
-  ///
-  /// In en, this message translates to:
-  /// **'Complete Profile'**
-  String get completeProfile;
-
-  /// No description provided for @signUpdetails.
-  ///
-  /// In en, this message translates to:
-  /// **'Get started with us with your details'**
-  String get signUpdetails;
 
   /// No description provided for @firstName.
   ///
@@ -173,47 +161,77 @@ abstract class AppLocalizations {
   /// **'Mobile'**
   String get mobile;
 
-  /// No description provided for @address.
+  /// No description provided for @city.
   ///
   /// In en, this message translates to:
-  /// **'Address'**
-  String get address;
+  /// **'City'**
+  String get city;
 
-  /// No description provided for @registration.
+  /// No description provided for @shippingAddress.
   ///
   /// In en, this message translates to:
-  /// **'Registration'**
-  String get registration;
+  /// **'Shipping Address'**
+  String get shippingAddress;
 
-  /// No description provided for @enterOtp.
+  /// No description provided for @completeProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete Profile'**
+  String get completeProfile;
+
+  /// No description provided for @enterYourEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'\'Enter your email\''**
+  String get enterYourEmail;
+
+  /// No description provided for @getStartedWithDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Get started with us with your details'**
+  String get getStartedWithDetails;
+
+  /// No description provided for @complete.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete'**
+  String get complete;
+
+  /// No description provided for @haveAnAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Have an account? '**
+  String get haveAnAccount;
+
+  /// No description provided for @enterOtpCode.
   ///
   /// In en, this message translates to:
   /// **'Enter OTP Code'**
-  String get enterOtp;
+  String get enterOtpCode;
 
-  /// No description provided for @otpSent.
+  /// No description provided for @otpCodeSent.
   ///
   /// In en, this message translates to:
-  /// **'A 4 Digit OTP Code has been Sent'**
-  String get otpSent;
+  /// **'A 4 Digit OTP Code has been sent'**
+  String get otpCodeSent;
 
-  /// No description provided for @otpExpire.
+  /// No description provided for @verify.
   ///
   /// In en, this message translates to:
-  /// **'This OTP will expire in '**
-  String get otpExpire;
+  /// **'Verify'**
+  String get verify;
 
-  /// No description provided for @resendCode.
-  ///
-  /// In en, this message translates to:
-  /// **'Resend Code'**
-  String get resendCode;
-
-  /// No description provided for @all_categories.
+  /// No description provided for @allCategories.
   ///
   /// In en, this message translates to:
   /// **'All Categories'**
-  String get all_categories;
+  String get allCategories;
+
+  /// No description provided for @seeAll.
+  ///
+  /// In en, this message translates to:
+  /// **'See All'**
+  String get seeAll;
 
   /// No description provided for @popular.
   ///
@@ -227,53 +245,11 @@ abstract class AppLocalizations {
   /// **'Special'**
   String get special;
 
-  /// No description provided for @see_all.
+  /// No description provided for @productDetails.
   ///
   /// In en, this message translates to:
-  /// **'See All'**
-  String get see_all;
-
-  /// No description provided for @home.
-  ///
-  /// In en, this message translates to:
-  /// **'Home'**
-  String get home;
-
-  /// No description provided for @category.
-  ///
-  /// In en, this message translates to:
-  /// **'Category'**
-  String get category;
-
-  /// No description provided for @card.
-  ///
-  /// In en, this message translates to:
-  /// **'Card'**
-  String get card;
-
-  /// No description provided for @wish.
-  ///
-  /// In en, this message translates to:
-  /// **'Wish'**
-  String get wish;
-
-  /// No description provided for @snew.
-  ///
-  /// In en, this message translates to:
-  /// **'New'**
-  String get snew;
-
-  /// No description provided for @totalPrice.
-  ///
-  /// In en, this message translates to:
-  /// **'Total price'**
-  String get totalPrice;
-
-  /// No description provided for @search.
-  ///
-  /// In en, this message translates to:
-  /// **'Search'**
-  String get search;
+  /// **'Product Details'**
+  String get productDetails;
 
   /// No description provided for @color.
   ///
@@ -293,29 +269,53 @@ abstract class AppLocalizations {
   /// **'Description'**
   String get description;
 
-  /// No description provided for @review.
+  /// No description provided for @enterYourFirstName.
   ///
   /// In en, this message translates to:
-  /// **'Review'**
-  String get review;
+  /// **'Enter your first name'**
+  String get enterYourFirstName;
 
-  /// No description provided for @price.
+  /// No description provided for @enterYourLastName.
   ///
   /// In en, this message translates to:
-  /// **'Price'**
-  String get price;
+  /// **'Enter your last name'**
+  String get enterYourLastName;
 
-  /// No description provided for @addToCard.
+  /// No description provided for @enterAPassword.
   ///
   /// In en, this message translates to:
-  /// **'Add to card'**
-  String get addToCard;
+  /// **'Enter a password'**
+  String get enterAPassword;
 
-  /// No description provided for @checkOut.
+  /// No description provided for @enterPasswordMoreThan6Letters.
   ///
   /// In en, this message translates to:
-  /// **'Checkout'**
-  String get checkOut;
+  /// **'Enter a password more than 6 letters'**
+  String get enterPasswordMoreThan6Letters;
+
+  /// No description provided for @enterAShippingAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a shipping address'**
+  String get enterAShippingAddress;
+
+  /// No description provided for @enterValidEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a valid email address'**
+  String get enterValidEmail;
+
+  /// No description provided for @enterYourValidMobileNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your Valid mobile number'**
+  String get enterYourValidMobileNumber;
+
+  /// No description provided for @enterCorrectOtp.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter the correct OTP number.'**
+  String get enterCorrectOtp;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

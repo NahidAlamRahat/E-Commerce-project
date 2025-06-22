@@ -1,80 +1,99 @@
+import 'package:e_commerce/app/app_colors.dart';
+import 'package:e_commerce/app/app_routes.dart';
+import 'package:e_commerce/app/controller_binders.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
-import 'app_color.dart';
-import 'app_routes.dart';
-import 'controller_binder.dart';
-import 'package:e_commerce/l10n/app_localizations.dart';
+import '../l10n/app_localizations.dart';
 
-
-class CraftyBayApp extends StatelessWidget {
-  const CraftyBayApp({super.key});
+class CraftyBay extends StatefulWidget {
+  const CraftyBay({super.key});
 
   @override
+  State<CraftyBay> createState() => _CraftyBayState();
+}
+
+class _CraftyBayState extends State<CraftyBay> {
+  @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return  GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      initialBinding: ControllerBinder(),
       initialRoute: '/',
+      initialBinding: ControllerBinders(),
       onGenerateRoute: AppRoutes.onGenerateRoute,
-      themeMode: ThemeMode.light,
-      darkTheme: ThemeData(
-        scaffoldBackgroundColor: const Color(0xFF161D1D),
-        appBarTheme: const AppBarTheme(backgroundColor: Color(0xFF161D1D)),
-        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-          backgroundColor: Color(0xFF161D1D),
-          selectedItemColor: AppColors.themeColor,
-          unselectedItemColor: Colors.grey,
-          type: BottomNavigationBarType.fixed,
+    theme: ThemeData(
+      colorSchemeSeed: AppColors.themeColor,
+
+      inputDecorationTheme: InputDecorationTheme(
+        contentPadding: const EdgeInsets.symmetric(horizontal: 16),
+        hintStyle:
+        const TextStyle(color: Colors.grey, fontWeight: FontWeight.w600),
+        filled: true,
+        fillColor: Colors.white,
+        enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(8),
+        borderSide: BorderSide(color: AppColors.themeColor),
+        ),
+        focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(8),
+        borderSide: BorderSide(color: AppColors.themeColor),
+         ),
+        focusedErrorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(8),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8),
+          borderSide: BorderSide(color: Colors.red)
+        ),
+
+      ),
+
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: AppColors.themeColor,
+          foregroundColor: Colors.white,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
+          fixedSize: const Size(double.maxFinite, 16),
+          textStyle: const TextStyle(color: Colors.white),
         ),
       ),
-      theme: ThemeData(
-        scaffoldBackgroundColor: Colors.white,
-        appBarTheme: const AppBarTheme(backgroundColor: Colors.white),
-        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-          backgroundColor: Colors.white,
-          selectedItemColor: AppColors.themeColor,
-          unselectedItemColor: Colors.grey,
-          type: BottomNavigationBarType.fixed,
-        ),
-        colorSchemeSeed: AppColors.themeColor,
-        textTheme: const TextTheme(
-          titleLarge: TextStyle(fontSize: 28, fontWeight: FontWeight.w600),
-        ),
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
-            backgroundColor: AppColors.themeColor,
-            fixedSize: const Size.fromWidth(double.maxFinite),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8),
-            ),
-            foregroundColor: Colors.white,
-          ),
-        ),
-        inputDecorationTheme: InputDecorationTheme(
-          hintStyle: TextStyle(color: Colors.grey, fontWeight: FontWeight.w300),
-          contentPadding: EdgeInsets.symmetric(horizontal: 16),
-          border: OutlineInputBorder(
-            borderSide: BorderSide(color: AppColors.themeColor),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8),
-            borderSide: BorderSide(color: AppColors.themeColor),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8),
-            borderSide: BorderSide(color: AppColors.themeColor),
-          ),
-        ),
+
+      appBarTheme: const AppBarTheme(
+        backgroundColor: Colors.white,
       ),
-      localizationsDelegates: const [
+      scaffoldBackgroundColor: Colors.white,
+
+      textTheme: const TextTheme(
+      titleLarge: TextStyle(
+      fontWeight: FontWeight.bold,
+      fontSize: 30),
+
+        titleSmall: TextStyle(
+         color: Colors.grey
+        )
+     ),
+
+
+
+    ),
+
+
+      localizationsDelegates:   const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      locale: Locale('bn'),
-      supportedLocales: [Locale('en'), Locale('bn')],
+      locale:  const Locale('en'),
+      supportedLocales: const [
+        Locale('en'), // English
+        Locale('bn'),
+      ],
+
+
     );
+
   }
 }

@@ -9,13 +9,16 @@ class AppLocalizationsBn extends AppLocalizations {
   AppLocalizationsBn([String locale = 'bn']) : super(locale);
 
   @override
-  String get version => 'সংস্করণ';
+  String get version => 'ভার্সন : ';
 
   @override
-  String get welcomeback => 'স্বাগতম আপনাকে';
+  String get signIn => 'সাইন ইন করুন';
 
   @override
-  String get plzEnterEmailPass => 'আপনার ইমেইল এবং পাসওয়ার্ড লিখুন';
+  String get welcomeBack => 'পুনরায় স্বাগতম';
+
+  @override
+  String get enterYorEmailAndPass => 'আপনার ইমেইল এবং পাসওয়ার্ড প্রদান করুন';
 
   @override
   String get email => 'ইমেইল';
@@ -24,98 +27,95 @@ class AppLocalizationsBn extends AppLocalizations {
   String get password => 'পাসওয়ার্ড';
 
   @override
-  String get signIn => 'সাইন ইন';
+  String get donTHaveAnAccount => 'অ্যাকাউন্ট নেই?';
 
   @override
-  String get doNotHaveAccount => 'আপনার কি অ্যাকাউন্ট নেই? ';
+  String get signUp => 'সাইন আপ করুন';
 
   @override
-  String get signUp => 'নিবন্ধন করুন';
+  String get firstName => 'নামের প্রথম অংশ';
 
   @override
-  String get completeProfile => 'প্রোফাইল সম্পূর্ণ করুন';
-
-  @override
-  String get signUpdetails => 'আপনার বিস্তারিত তথ্য দিয়ে আমাদের সাথেই থাকুন';
-
-  @override
-  String get firstName => 'প্রথম নাম';
-
-  @override
-  String get lastName => 'পদবি';
+  String get lastName => 'নামের শেষ অংশ';
 
   @override
   String get mobile => 'মোবাইল';
 
   @override
-  String get address => 'ঠিকানা';
+  String get city => 'শহর';
 
   @override
-  String get registration => 'নিবন্ধন করুন';
+  String get shippingAddress => 'প্রেরণের ঠিকানা';
 
   @override
-  String get enterOtp => 'ওটিপি কোড লিখুন';
+  String get completeProfile => 'Complete Profile';
 
   @override
-  String get otpSent => '৪ সংখ্যার একটি ওটিপি কোড পাঠানো হয়েছে';
+  String get enterYourEmail => 'আপনার ইমেইল দিন';
 
   @override
-  String get otpExpire => 'এই ওটিপির মেয়াদ শেষ হবে ';
+  String get getStartedWithDetails => 'আপনার তথ্য দিয়ে আমাদের সাথে যাত্রা শুরু করুন';
 
   @override
-  String get resendCode => 'আবার কোড পাঠান';
+  String get complete => 'সম্পূর্ণ করুন';
 
   @override
-  String get all_categories => 'সব বিভাগ';
+  String get haveAnAccount => 'অ্যাকাউন্ট আছে? ';
+
+  @override
+  String get enterOtpCode => 'OTP কোড লিখুন';
+
+  @override
+  String get otpCodeSent => '৪ সংখ্যার OTP কোড পাঠানো হয়েছে';
+
+  @override
+  String get verify => 'যাচাই করুন';
+
+  @override
+  String get allCategories => 'সমস্ত বিভাগ';
+
+  @override
+  String get seeAll => 'সব দেখুন';
 
   @override
   String get popular => 'জনপ্রিয়';
 
   @override
-  String get special => 'বিশেষ';
+  String get special => 'বিশেষ অফার';
 
   @override
-  String get see_all => 'সব দেখুন';
+  String get productDetails => 'পণ্যের বিবরণ';
 
   @override
-  String get home => 'হোম';
+  String get color => 'রং';
 
   @override
-  String get category => 'বিভাগ';
-
-  @override
-  String get card => 'কার্ড';
-
-  @override
-  String get wish => 'ইচ্ছা তালিকা';
-
-  @override
-  String get snew => 'নতুন';
-
-  @override
-  String get totalPrice => 'মোট মূল্য';
-
-  @override
-  String get search => 'অনুসন্ধান';
-
-  @override
-  String get color => 'রঙ';
-
-  @override
-  String get size => 'আকার';
+  String get size => 'সাইজ';
 
   @override
   String get description => 'বর্ণনা';
 
   @override
-  String get review => 'পর্যালোচনা';
+  String get enterYourFirstName => 'আপনার প্রথম নাম লিখুন';
 
   @override
-  String get price => 'মূল্য';
+  String get enterYourLastName => 'আপনার শেষ নাম লিখুন';
 
   @override
-  String get addToCard => 'কার্ডে যোগ';
+  String get enterAPassword => 'একটি পাসওয়ার্ড লিখুন';
 
   @override
-  String get checkOut => 'চেক আউট';
+  String get enterPasswordMoreThan6Letters => '৬ অক্ষরের বেশি একটি পাসওয়ার্ড লিখুন';
+
+  @override
+  String get enterAShippingAddress => 'একটি শিপিং ঠিকানা লিখুন';
+
+  @override
+  String get enterValidEmail => 'একটি সঠিক ইমেইল ঠিকানা দিন';
+
+  @override
+  String get enterYourValidMobileNumber => 'আপনার সঠিক মোবাইল নম্বর লিখুন';
+
+  @override
+  String get enterCorrectOtp => 'সঠিক OTP নম্বর লিখুন';
 }
