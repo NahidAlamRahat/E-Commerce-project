@@ -9,13 +9,16 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get version => 'Version';
+  String get version => 'version : ';
 
   @override
-  String get welcomeback => 'Welcome Back';
+  String get signIn => 'Sign in';
 
   @override
-  String get plzEnterEmailPass => 'Please Enter Your Email and password';
+  String get welcomeBack => 'Welcome Back';
+
+  @override
+  String get enterYorEmailAndPass => 'Enter your Email and Password';
 
   @override
   String get email => 'Email';
@@ -24,19 +27,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get password => 'Password';
 
   @override
-  String get signIn => 'Sign In';
+  String get donTHaveAnAccount => 'Don\'t have an account?';
 
   @override
-  String get doNotHaveAccount => 'Don\'t have an account? ';
-
-  @override
-  String get signUp => 'Sign Up';
-
-  @override
-  String get completeProfile => 'Complete Profile';
-
-  @override
-  String get signUpdetails => 'Get started with us with your details';
+  String get signUp => 'Sign up';
 
   @override
   String get firstName => 'First Name';
@@ -48,25 +42,40 @@ class AppLocalizationsEn extends AppLocalizations {
   String get mobile => 'Mobile';
 
   @override
-  String get address => 'Address';
+  String get city => 'City';
 
   @override
-  String get registration => 'Registration';
+  String get shippingAddress => 'Shipping Address';
 
   @override
-  String get enterOtp => 'Enter OTP Code';
+  String get completeProfile => 'Complete Profile';
 
   @override
-  String get otpSent => 'A 4 Digit OTP Code has been Sent';
+  String get enterYourEmail => '\'Enter your email\'';
 
   @override
-  String get otpExpire => 'This OTP will expire in ';
+  String get getStartedWithDetails => 'Get started with us with your details';
 
   @override
-  String get resendCode => 'Resend Code';
+  String get complete => 'Complete';
 
   @override
-  String get all_categories => 'All Categories';
+  String get haveAnAccount => 'Have an account? ';
+
+  @override
+  String get enterOtpCode => 'Enter OTP Code';
+
+  @override
+  String get otpCodeSent => 'A 4 Digit OTP Code has been sent';
+
+  @override
+  String get verify => 'Verify';
+
+  @override
+  String get allCategories => 'All Categories';
+
+  @override
+  String get seeAll => 'See All';
 
   @override
   String get popular => 'Popular';
@@ -75,28 +84,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get special => 'Special';
 
   @override
-  String get see_all => 'See All';
-
-  @override
-  String get home => 'Home';
-
-  @override
-  String get category => 'Category';
-
-  @override
-  String get card => 'Card';
-
-  @override
-  String get wish => 'Wish';
-
-  @override
-  String get snew => 'New';
-
-  @override
-  String get totalPrice => 'Total price';
-
-  @override
-  String get search => 'Search';
+  String get productDetails => 'Product Details';
 
   @override
   String get color => 'Color';
@@ -108,14 +96,30 @@ class AppLocalizationsEn extends AppLocalizations {
   String get description => 'Description';
 
   @override
-  String get review => 'Review';
+  String get enterYourFirstName => 'Enter your first name';
 
   @override
-  String get price => 'Price';
+  String get enterYourLastName => 'Enter your last name';
 
   @override
-  String get addToCard => 'Add to card';
+  String get enterAPassword => 'Enter a password';
 
   @override
-  String get checkOut => 'Checkout';
+  String get enterPasswordMoreThan6Letters =>
+      'Enter a password more than 6 letters';
+
+  @override
+  String get enterAShippingAddress => 'Enter a shipping address';
+
+  @override
+  String get enterValidEmail => 'Enter a valid email address';
+
+  @override
+  String get enterYourValidMobileNumber => 'Enter your Valid mobile number';
+
+  @override
+  String get enterCorrectOtp => 'Enter the correct OTP number.';
+
+  @override
+  String get enterYourPassword => 'Enter your password';
 }
