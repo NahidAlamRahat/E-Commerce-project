@@ -1,12 +1,18 @@
 import 'package:e_commerce/app/assets_path.dart';
 import 'package:e_commerce/core/extensions/localization_extension.dart';
+import 'package:e_commerce/features/auth/data/models/sign_in_model.dart';
+import 'package:e_commerce/features/auth/ui/controllers/sign_in_controller.dart';
 import 'package:e_commerce/features/auth/ui/screens/sign_up_screen.dart';
+import 'package:e_commerce/features/auth/ui/screens/verify_otp_screen.dart';
 import 'package:e_commerce/features/auth/ui/widgets/app_logo.dart';
 import 'package:e_commerce/features/common/ui/screen/main_bottom_nav_bar_screen.dart';
 import 'package:e_commerce/features/auth/ui/widgets/double_click_to_exit_app_method.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import '../../../../app/app_colors.dart';
+import '../widgets/show_snack_bar_message.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -21,6 +27,8 @@ class _SignInScreenState extends State<SignInScreen> {
   final TextEditingController _emailTEController = TextEditingController();
   final TextEditingController _passwordTEController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final SignInController _signInController = Get.find<SignInController>();
+
   bool _isGoogleLoading = false;
 
   @override
@@ -130,6 +138,39 @@ class _SignInScreenState extends State<SignInScreen> {
         ],
       ),
     );
+  }
+
+
+  Future<void> onTapSignUpButton() async{
+    if(_formKey.currentState!.validate()){
+      SignInModel signInModel = SignInModel (
+          email: _emailTEController.text.trim(),
+          password: _passwordTEController.text);
+
+      final bool isSuccess = await _signInController.signIn(signInModel);
+      _signInController.inProgress== true;
+
+      if(isSuccess){
+        _signInController.inProgress==false;
+        ShowSnackBarMessage(
+          _signInController.successfullyMessage ?? 'Signup Successful!',
+          context,
+        );
+        Navigator.pushNamed(
+          context,
+          VerifyOtpScreenOtp.name,
+          arguments: _emailTEController.text.trim(),
+        );
+      }
+      else{
+        _signInController.inProgress==false;
+        // error message
+        ShowSnackBarMessage(_signInController.errorMessage, context);
+
+
+      }
+
+    }
   }
 
 }

@@ -137,7 +137,8 @@ class NetworkCaller {
   }
 
 
-  /// Sends a POST request to the [url].
+
+  /// Sends a PUT request to the [url].
   Future<NetworkResponse> putRequest({
     required String url, required Map<String, dynamic>? body}) async {
     try {
@@ -151,7 +152,7 @@ class NetworkCaller {
       _logRequest(url: url, headers: headers);
 
       Response response =
-      await post(uri, headers: headers, body: jsonEncode(body));
+      await put(uri, headers: headers, body: jsonEncode(body));
 
       _logResponse(url: url, response: response);
 
@@ -194,7 +195,7 @@ class NetworkCaller {
   }
 
 
-  /// Sends a POST request to the [url].
+  /// Sends a PATCH request to the [url].
   Future<NetworkResponse> patchRequest({
     required String url, required Map<String, dynamic>? body}) async {
     try {
@@ -208,7 +209,7 @@ class NetworkCaller {
       _logRequest(url: url, headers: headers);
 
       Response response =
-      await post(uri, headers: headers, body: jsonEncode(body));
+      await patch(uri, headers: headers, body: jsonEncode(body));
 
       _logResponse(url: url, response: response);
 
@@ -251,7 +252,7 @@ class NetworkCaller {
   }
 
 
-  /// Sends a POST request to the [url].
+  /// Sends a DELETE request to the [url].
   Future<NetworkResponse> deleteRequest({
     required String url, required Map<String, dynamic>? body}) async {
     try {
@@ -265,7 +266,7 @@ class NetworkCaller {
       _logRequest(url: url, headers: headers);
 
       Response response =
-      await post(uri, headers: headers, body: jsonEncode(body));
+      await delete(uri, headers: headers, body: jsonEncode(body));
 
       _logResponse(url: url, response: response);
 
