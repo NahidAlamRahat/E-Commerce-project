@@ -58,7 +58,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 const SizedBox(height: 12),
                 ElevatedButton(
                     onPressed: () {
-                      Navigator.pushReplacementNamed(context, MainBottomNavBarScreen.name);
+                      _onTapSignUpButton();
                     },
                     child: Text(context.localizations.signIn)),
                 const SizedBox(height: 12),
@@ -141,7 +141,7 @@ class _SignInScreenState extends State<SignInScreen> {
   }
 
 
-  Future<void> onTapSignUpButton() async{
+  Future<void> _onTapSignUpButton() async{
     if(_formKey.currentState!.validate()){
       SignInModel signInModel = SignInModel (
           email: _emailTEController.text.trim(),
@@ -156,11 +156,7 @@ class _SignInScreenState extends State<SignInScreen> {
           _signInController.successfullyMessage ?? 'Signup Successful!',
           context,
         );
-        Navigator.pushNamed(
-          context,
-          VerifyOtpScreenOtp.name,
-          arguments: _emailTEController.text.trim(),
-        );
+        Navigator.pushReplacementNamed(context, MainBottomNavBarScreen.name);
       }
       else{
         _signInController.inProgress==false;
